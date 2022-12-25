@@ -269,6 +269,16 @@ namespace HaydarUsta
             }
         }
 
-       
+        private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

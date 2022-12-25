@@ -83,6 +83,12 @@
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="MusteriBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriBilgileri.Designer.cs">
+      <DependentUpon>MusteriBilgileri.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAnaSayfa.resx">
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmYetkili.resx">
       <DependentUpon>frmYetkili.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriBilgileri.resx">
+      <DependentUpon>MusteriBilgileri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

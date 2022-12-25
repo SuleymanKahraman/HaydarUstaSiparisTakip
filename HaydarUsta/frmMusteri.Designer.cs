@@ -37,7 +37,6 @@
             this.rbNakit = new System.Windows.Forms.RadioButton();
             this.lbFatura = new System.Windows.Forms.ListBox();
             this.lblUcret = new System.Windows.Forms.Label();
-            this.btnCıkıs = new System.Windows.Forms.Button();
             this.btnSiparisVer = new System.Windows.Forms.Button();
             this.gbIcecek = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -109,6 +108,9 @@
             this.cbLahmacun = new System.Windows.Forms.CheckBox();
             this.cbEtli = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.bilgilerimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbIcecek.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFanta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmKola)).BeginInit();
@@ -133,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmUsta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmKofte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmTavukSis)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -208,20 +211,11 @@
             this.lblUcret.TabIndex = 108;
             this.lblUcret.Text = "Siparis Özet:";
             // 
-            // btnCıkıs
-            // 
-            this.btnCıkıs.Location = new System.Drawing.Point(654, 627);
-            this.btnCıkıs.Name = "btnCıkıs";
-            this.btnCıkıs.Size = new System.Drawing.Size(113, 54);
-            this.btnCıkıs.TabIndex = 107;
-            this.btnCıkıs.Text = "ÇIKIŞ";
-            this.btnCıkıs.UseVisualStyleBackColor = true;
-            // 
             // btnSiparisVer
             // 
-            this.btnSiparisVer.Location = new System.Drawing.Point(516, 627);
+            this.btnSiparisVer.Location = new System.Drawing.Point(1276, 649);
             this.btnSiparisVer.Name = "btnSiparisVer";
-            this.btnSiparisVer.Size = new System.Drawing.Size(113, 54);
+            this.btnSiparisVer.Size = new System.Drawing.Size(376, 95);
             this.btnSiparisVer.TabIndex = 106;
             this.btnSiparisVer.Text = "TAMAM";
             this.btnSiparisVer.UseVisualStyleBackColor = true;
@@ -1112,6 +1106,33 @@
             this.label3.TabIndex = 102;
             this.label3.Text = "SİPARİŞLERİ SEÇİNİZ:";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bilgilerimToolStripMenuItem,
+            this.çıkışToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1995, 33);
+            this.menuStrip1.TabIndex = 112;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // bilgilerimToolStripMenuItem
+            // 
+            this.bilgilerimToolStripMenuItem.Name = "bilgilerimToolStripMenuItem";
+            this.bilgilerimToolStripMenuItem.Size = new System.Drawing.Size(100, 29);
+            this.bilgilerimToolStripMenuItem.Text = "Bilgilerim";
+            this.bilgilerimToolStripMenuItem.Click += new System.EventHandler(this.bilgilerimToolStripMenuItem_Click);
+            // 
+            // çıkışToolStripMenuItem
+            // 
+            this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
+            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
+            this.çıkışToolStripMenuItem.Text = "Çıkış";
+            this.çıkışToolStripMenuItem.Click += new System.EventHandler(this.çıkışToolStripMenuItem_Click);
+            // 
             // frmMusteri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1121,7 +1142,6 @@
             this.Controls.Add(this.rbNakit);
             this.Controls.Add(this.lbFatura);
             this.Controls.Add(this.lblUcret);
-            this.Controls.Add(this.btnCıkıs);
             this.Controls.Add(this.btnSiparisVer);
             this.Controls.Add(this.gbIcecek);
             this.Controls.Add(this.gbMzSlt);
@@ -1131,6 +1151,7 @@
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMusteri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1163,6 +1184,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmUsta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmKofte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmTavukSis)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1178,7 +1201,6 @@
         private System.Windows.Forms.RadioButton rbNakit;
         private System.Windows.Forms.ListBox lbFatura;
         private System.Windows.Forms.Label lblUcret;
-        private System.Windows.Forms.Button btnCıkıs;
         private System.Windows.Forms.Button btnSiparisVer;
         private System.Windows.Forms.GroupBox gbIcecek;
         private System.Windows.Forms.Label label26;
@@ -1250,5 +1272,8 @@
         private System.Windows.Forms.CheckBox cbLahmacun;
         private System.Windows.Forms.CheckBox cbEtli;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem bilgilerimToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem çıkışToolStripMenuItem;
     }
 }
