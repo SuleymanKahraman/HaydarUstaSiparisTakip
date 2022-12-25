@@ -15,16 +15,13 @@ namespace HaydarUsta
     public partial class frmAnaSayfa : Form
     {
 
-        private readonly DataHelper fn;
+        private readonly DataHelper helper;
+        private LoginModel model;
+
         public frmAnaSayfa()
         {
             InitializeComponent();
-            fn = new DataHelper();
-        }
-
-        private void lblParolaGiris_Click(object sender, EventArgs e)
-        {
-
+            helper = new DataHelper();
         }
 
         private void frmAnaSayfa_Load(object sender, EventArgs e)
@@ -34,55 +31,39 @@ namespace HaydarUsta
 
         private void btnKayit_Click(object sender, EventArgs e)
         {
+            frmKullaniciKayit kayit = new frmKullaniciKayit();
+            kayit.ShowDialog();
+            kayit.Dispose();
+        }
 
-            if (txtAd.Text == "" || txtSoyad.Text == "" || txtEmail.Text == "" || txtParola.Text == "" || txtParolaTekrar.Text == "")
+        private void btnGiris_Click_1(object sender, EventArgs e)
+        {
+            if (txtLogEmailAdres.Text == "" || txtLogParola.Text == "")
             {
-                MessageBox.Show("Boş Alan Bırakılamaz.");
+                MessageBox.Show("Alanlar Boş Bırakılamaz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (txtParola.Text != txtParolaTekrar.Text)
+                model = new LoginModel()
                 {
-                    MessageBox.Show("Parolalar Eşleşmedi.");
+                    EmailAdres = txtLogEmailAdres.Text,
+                    Parola = txtLogParola.Text
+                };
+
+                var result = helper.LoginSorgu(model);
+                if (result)
+                {
+                    frmMusteri menu = new frmMusteri(model);
+                    menu.ShowDialog();
+                    menu.Dispose();
                 }
                 else
                 {
-                    bool result = fn.KullaniciEkle(txtAd.Text, txtSoyad.Text, txtEmail.Text, txtParola.Text);
-                    if (result)
-                    {
-                        MessageBox.Show("İşleminiz Başarıyla Gerçekleşti.");
-                        //txtAd.Clear(); metot yaz buraya cağır.
-                    }
-                    else
-                    {
-                        MessageBox.Show("Kardeş sql'in bok yemesi");
-                    }
+                    MessageBox.Show("Hatalı Giriş Yaptınız. Lütfen Tekrar Deneyiniz Veya Kayıt Olunuz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtLogEmailAdres.Clear();
+                    txtLogParola.Clear();
                 }
-                
             }
-            
-
-        }
-
-        private void btnGiris_Click(object sender, EventArgs e)
-        {
-            LoginResult result = fn.Login(txtEmailGiris.Text, txtParolaGiris.Text);
-            if (result is null)
-            {
-                MessageBox.Show("Böyle bir kullanıcı bulunamadı!");
-                txtEmailGiris.Clear();
-                txtParolaGiris.Clear();
-            }
-            else
-            {
-                frmKullanici frmKullanici = new frmKullanici(result.Ad, result.KullaniciID);
-                frmKullanici.Show();
-            }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

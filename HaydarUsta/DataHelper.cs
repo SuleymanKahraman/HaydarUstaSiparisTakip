@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HaydarUsta.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -14,42 +16,83 @@ namespace HaydarUsta
         private readonly SqlConnection connection;
         public DataHelper()
         {
-            connection = new SqlConnection("Data Source=LAPTOP-VMEL2LCP\\SULEYMANKAHRAMAN;Initial Catalog=HaydarUstaninYeri;Integrated Security=True");
+            connection = new SqlConnection("Data Source=LAPTOP-VMEL2LCP\\SQLEXPRESS01;Initial Catalog=HaydarUsta;Integrated Security=True");
         }
         
-        public bool KullaniciEkle (string ad, string soyad, string email, string parola)
+        public bool AddMusteri (AddModel model)
         {
-            SqlCommand ekleKomut = new SqlCommand("INSERT INTO tbl_Musteriler (Ad, Soyad, EmailAdres, Parola) VALUES (@Ad, @Soyad, @EmailAdres, @Parola)", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Musteriler (Ad, Soyad, EmailAdres, Parola) VALUES (@Ad, @Soyad, @EmailAdres, @Parola)", connection);
             connection.Open();
-            ekleKomut.Parameters.AddWithValue("Ad", ad);
-            ekleKomut.Parameters.AddWithValue("Soyad", soyad);
-            ekleKomut.Parameters.AddWithValue("EmailAdres", email);
-            ekleKomut.Parameters.AddWithValue("Parola", parola);
-            var result = ekleKomut.ExecuteNonQuery(); // 0 veya 1 Row effected, ekleme yaptığında gerçekleşir, 
+            cmd.Parameters.AddWithValue("Ad", model.ad);
+            cmd.Parameters.AddWithValue("Soyad",model.soyad);
+            cmd.Parameters.AddWithValue("EmailAdres", model.emailAdres);
+            cmd.Parameters.AddWithValue("Parola", model.parola);
+            var result = cmd.ExecuteNonQuery(); 
             connection.Close();
-
-            return result > 0; // Void'e çeviriyoruz. 
-            
-            
+            return result > 0; 
         }
 
-        public LoginResult Login(string email, string parola)
+        public bool LoginSorgu(LoginModel model)
         {
             connection.Open();
-            SqlCommand girisKomut = new SqlCommand("SELECT KullaniciID,Ad FROM tbl_Musteriler WHERE EmailAdres = '" +email+ "' AND Parola ='" +parola+ "'", connection);
-            SqlDataReader okuyucu = girisKomut.ExecuteReader();
-            if (okuyucu.Read())
+            SqlCommand sorgu = new SqlCommand($"SELECT * FROM Musteriler WHERE EmailAdres = '{model.EmailAdres}' AND Parola ='{model.Parola}'", connection);
+            SqlDataReader oku = sorgu.ExecuteReader();
+            if (oku.Read())
             {
-                LoginResult result = new LoginResult()
-                {
-                    Ad = okuyucu["Ad"].ToString(),
-                    KullaniciID = (int)okuyucu["KullaniciID"]
-                };
-                return result;
+                model.Id = (int)oku.GetValue(0);
+                model.ad = oku["Ad"].ToString();
+                model.soyad = oku["Soyad"].ToString();
+                connection.Close();
+                return true;
             }
-            return null;
+            connection.Close();
+            return false;
             
         }
 
+        public DataTable TabloGetir(string sql)
+        {
+            connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);   
+            connection.Close();
+            return dt;
+        }
+
+        public bool AddSorgu(AddModel model)
+        {
+            connection.Open();
+            SqlCommand cmd = new SqlCommand($"SELECT * FROM Musteriler WHERE Ad = '{model.ad}' AND Soyad = '{model.soyad}'", connection);
+            SqlDataReader read = cmd.ExecuteReader();
+            var result = read.Read();
+            connection.Close();
+            if (result)
+            {
+                return true;
+            }
+            return false;
+            
+        }
+
+        public bool SiparisEkle(MenuModel menuModel)
+        {
+            SqlCommand cmd = new SqlCommand($"INSERT INTO Siparisler(Musteri_Id, Siparis, SiparisTarihi, OdemeTutari, OdemeYontemi, Adres, Telefon) VALUES (@Musteri_Id, @Siparis, @SiparisTarihi, @OdemeTutari, @OdemeYontemi, @Adres, @Telefon)", connection);
+            connection.Open();
+            cmd.Parameters.AddWithValue("Musteri_Id", menuModel.Musteri_Id);
+            cmd.Parameters.AddWithValue("Siparis", menuModel.siparis);
+            cmd.Parameters.AddWithValue("SiparisTarihi", menuModel.siparisTarih);
+            cmd.Parameters.AddWithValue("OdemeTutari", menuModel.odemeTurari);
+            cmd.Parameters.AddWithValue("OdemeYontemi", menuModel.odemeYontemi);
+            cmd.Parameters.AddWithValue("Adres", menuModel.adres);
+            cmd.Parameters.AddWithValue("Telefon", menuModel.telefon);
+            var result = cmd.ExecuteNonQuery(); 
+            connection.Close();
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
