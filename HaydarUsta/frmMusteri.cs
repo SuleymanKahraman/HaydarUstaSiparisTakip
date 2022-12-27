@@ -15,22 +15,24 @@ namespace HaydarUsta
 {
     public partial class frmMusteri : Form
     {
-        private LoginModel loginModel;
-        private MenuModel menuModel;
+        private LoginModel login;
+        private SiparisModel siparis;
         private DataHelper helper;
+        private MenuModel menu;
         List<string> MenuList = new List<string>();
         public frmMusteri(LoginModel model)
         {
             InitializeComponent();
-            this.loginModel = model;
+            this.login = model;
         }
 
         private void frmKullanici_Load(object sender, EventArgs e)
         {
-            txtAdSoyad.Text = loginModel.ad + " " + loginModel.soyad;
+            lblİsim.Text = login.ad + " " + login.soyad;
             helper = new DataHelper();
-            menuModel= new MenuModel();
-            menuModel.Musteri_Id = loginModel.Id;
+            siparis= new SiparisModel();
+            menu = new MenuModel();
+            siparis.Musteri_Id = login.Id;
 
         }
         private void btnSiparisVer_Click(object sender, EventArgs e)
@@ -38,7 +40,7 @@ namespace HaydarUsta
             if (cbAdana.Checked == false && cbTantuni.Checked == false && cbTavukSis.Checked == false && cbKofte.Checked == false && cbUsta.Checked == false && cbLahmacun.Checked == false && cbEtli.Checked == false)
             {
                 MessageBox.Show("Ana Yemeklerden en az bir adet seçmek zorunludur.");
-                Clear();
+                return;
 
             }
             else
@@ -47,20 +49,20 @@ namespace HaydarUsta
                 DialogResult YesNo = MessageBox.Show("Siparişinizi Onaylıyor musunuz?", "", MessageBoxButtons.YesNo);
                 if (YesNo == DialogResult.Yes)
                 {
-                    frmAdres adres = new frmAdres(menuModel);
+                    frmAdres adres = new frmAdres(siparis);
                     adres.ShowDialog();
                     adres.Dispose();
-                    if (menuModel.adres != null)
+                    if (siparis.adres != null)
                     {
-                        menuModel.odemeTurari = UcretHesapla();
-                        menuModel.siparis = SiparisList();
-                        menuModel.odemeYontemi=OdemeYontemi();
-                        menuModel.siparisTarih=DateTime.Now;    
-                        var result = helper.SiparisEkle(menuModel);
+                        siparis.odemeTurari = UcretHesapla();
+                        siparis.siparis = SiparisList();
+                        siparis.odemeYontemi=OdemeYontemi();
+                        siparis.siparisTarih=DateTime.Now;    
+                        var result = helper.SiparisEkle(siparis);
                         if (result)
                         {
                             MessageBox.Show("İşleminiz başarıyla gerçekleşti. Afiyet olsun.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Clear();
+                            SiparisFisi();
                         }
                         else
                         {
@@ -79,6 +81,27 @@ namespace HaydarUsta
             }
         }
 
+        private void SiparisFisi()
+        {
+            lbFatura.Items.Add("SİPARİŞ ÖZETİ");
+            lbFatura.Items.Add(" ");
+            lbFatura.Items.Add("**********");
+            lbFatura.Items.Add(" ");
+            foreach (var item in MenuList)
+            {
+                lbFatura.Items.Add(item.ToString());
+            }
+            lbFatura.Items.Add(" ");
+            lbFatura.Items.Add("**********");
+            lbFatura.Items.Add(" ");
+            lbFatura.Items.Add($"Toplam Siparis Tutarı: {siparis.odemeTurari} TL.");
+            lbFatura.Items.Add($"Ödeme Yöntemi: {siparis.odemeYontemi}");
+            lbFatura.Items.Add(" ");
+            lbFatura.Items.Add("**********");
+            lbFatura.Items.Add(" ");
+            lbFatura.Items.Add($"Adres: {siparis.adres}");
+            lbFatura.Items.Add($"Telefon: {siparis.telefon}");
+        }
         private string OdemeYontemi()
         {
             if (rbKrediKarti.Checked)
@@ -92,12 +115,8 @@ namespace HaydarUsta
             string siparis = string.Empty;
             foreach (var item in MenuList)
             {
-                lbFatura.Items.Add(item.ToString());
                 siparis += item.ToString() + " ";
-
             }
-            lbFatura.Items.Add("**********");
-            lbFatura.Items.Add($"Toplam Siparis Tutarı: {menuModel.odemeTurari} TL.");
             return siparis;
         }
         //TODO: her combobox için seçilen ürünler siparişler olarak liste şeklinde veri tabanına kaydedileceğinden combobox.text özelliğinden yararlanalım. 
@@ -107,7 +126,8 @@ namespace HaydarUsta
             if (cbAdana.Checked)
             {
                 ucret += (nmAdanaKebap.Value * 78);
-                MenuList.Add($" {nmAdanaKebap.Value} Adet Adana Kebap");
+                menu.adanaKebab = $" {nmAdanaKebap.Value} Adet Adana Kebap";
+                //MenuList.Add($" {nmAdanaKebap.Value} Adet Adana Kebap");
             }
             if (cbTantuni.Checked)
             {
@@ -269,16 +289,43 @@ namespace HaydarUsta
             }
         }
 
-        private void bilgilerimToolStripMenuItem_Click(object sender, EventArgs e)
+        private void siparisBilgileriToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmSiparisBilgileri siparisBilgiler = new frmSiparisBilgileri(siparis,MenuList);
+            siparisBilgiler.ShowDialog();
+            siparisBilgiler.Dispose();
+        }
+
+        private void musteriBilgileriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMusteriBilgileri musteriBilgileri = new frmMusteriBilgileri(login);
+            musteriBilgileri.ShowDialog();
+            musteriBilgileri.Dispose();
+        }
+
+        private void hesabıSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Silmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(dialogResult == DialogResult.Yes)
+            {
+                var result = helper.MusteriSilme(login.Id);
+                if (result)
+                {
+                    MessageBox.Show("Hesabınızı sildiğiniz için üzgünüz. Tekrar bekleriz.", "Bildirim",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Silme İşlemi Başarısız.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
 
         }
 
-        private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnYeniSiparis_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Clear();
         }
-
-        
     }
 }

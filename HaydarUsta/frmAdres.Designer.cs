@@ -40,6 +40,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvAdresler = new System.Windows.Forms.DataGridView();
             this.btnSec = new System.Windows.Forms.Button();
+            this.Baslık = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdresler)).BeginInit();
@@ -52,7 +55,6 @@
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.Size = new System.Drawing.Size(381, 98);
             this.txtAdres.TabIndex = 22;
-            this.txtAdres.TextChanged += new System.EventHandler(this.txtAdres_TextChanged);
             // 
             // lblAdres
             // 
@@ -65,7 +67,7 @@
             // 
             // txtTelefon
             // 
-            this.txtTelefon.Location = new System.Drawing.Point(17, 239);
+            this.txtTelefon.Location = new System.Drawing.Point(17, 227);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(381, 26);
             this.txtTelefon.TabIndex = 20;
@@ -73,7 +75,7 @@
             // lblTelefon
             // 
             this.lblTelefon.AutoSize = true;
-            this.lblTelefon.Location = new System.Drawing.Point(169, 200);
+            this.lblTelefon.Location = new System.Drawing.Point(169, 192);
             this.lblTelefon.Name = "lblTelefon";
             this.lblTelefon.Size = new System.Drawing.Size(66, 20);
             this.lblTelefon.TabIndex = 23;
@@ -81,25 +83,25 @@
             // 
             // btnKaydetAdres
             // 
-            this.btnKaydetAdres.Location = new System.Drawing.Point(139, 307);
+            this.btnKaydetAdres.Location = new System.Drawing.Point(17, 287);
             this.btnKaydetAdres.Name = "btnKaydetAdres";
-            this.btnKaydetAdres.Size = new System.Drawing.Size(110, 56);
+            this.btnKaydetAdres.Size = new System.Drawing.Size(381, 76);
             this.btnKaydetAdres.TabIndex = 24;
             this.btnKaydetAdres.Text = "Kaydet";
             this.btnKaydetAdres.UseVisualStyleBackColor = true;
             // 
             // btnGuncelleAdres
             // 
-            this.btnGuncelleAdres.Location = new System.Drawing.Point(138, 307);
+            this.btnGuncelleAdres.Location = new System.Drawing.Point(48, 325);
             this.btnGuncelleAdres.Name = "btnGuncelleAdres";
-            this.btnGuncelleAdres.Size = new System.Drawing.Size(110, 56);
+            this.btnGuncelleAdres.Size = new System.Drawing.Size(110, 58);
             this.btnGuncelleAdres.TabIndex = 25;
             this.btnGuncelleAdres.Text = "Güncelle";
             this.btnGuncelleAdres.UseVisualStyleBackColor = true;
             // 
             // btnSilAdres
             // 
-            this.btnSilAdres.Location = new System.Drawing.Point(376, 307);
+            this.btnSilAdres.Location = new System.Drawing.Point(637, 325);
             this.btnSilAdres.Name = "btnSilAdres";
             this.btnSilAdres.Size = new System.Drawing.Size(110, 58);
             this.btnSilAdres.TabIndex = 26;
@@ -128,7 +130,7 @@
             this.groupBox2.Controls.Add(this.btnGuncelleAdres);
             this.groupBox2.Location = new System.Drawing.Point(489, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(634, 411);
+            this.groupBox2.Size = new System.Drawing.Size(790, 411);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kayıtlı Adreslerim";
@@ -139,28 +141,53 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAdresler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAdresler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAdresler.Location = new System.Drawing.Point(48, 52);
+            this.dgvAdresler.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Baslık,
+            this.Adres,
+            this.Telefon});
+            this.dgvAdresler.Location = new System.Drawing.Point(48, 38);
             this.dgvAdresler.Name = "dgvAdresler";
             this.dgvAdresler.RowHeadersWidth = 62;
             this.dgvAdresler.RowTemplate.Height = 28;
-            this.dgvAdresler.Size = new System.Drawing.Size(542, 231);
+            this.dgvAdresler.Size = new System.Drawing.Size(699, 231);
             this.dgvAdresler.TabIndex = 29;
             // 
             // btnSec
             // 
-            this.btnSec.Location = new System.Drawing.Point(263, 307);
+            this.btnSec.Location = new System.Drawing.Point(325, 325);
             this.btnSec.Name = "btnSec";
-            this.btnSec.Size = new System.Drawing.Size(96, 58);
+            this.btnSec.Size = new System.Drawing.Size(110, 58);
             this.btnSec.TabIndex = 28;
             this.btnSec.Text = "Seç";
             this.btnSec.UseVisualStyleBackColor = true;
             this.btnSec.Click += new System.EventHandler(this.btnSec_Click);
             // 
+            // Baslık
+            // 
+            this.Baslık.DataPropertyName = "Baslık";
+            this.Baslık.HeaderText = "BAŞLIK";
+            this.Baslık.MinimumWidth = 8;
+            this.Baslık.Name = "Baslık";
+            // 
+            // Adres
+            // 
+            this.Adres.DataPropertyName = "Adres";
+            this.Adres.HeaderText = "ADRES";
+            this.Adres.MinimumWidth = 8;
+            this.Adres.Name = "Adres";
+            // 
+            // Telefon
+            // 
+            this.Telefon.DataPropertyName = "Telefon";
+            this.Telefon.HeaderText = "TELEFON";
+            this.Telefon.MinimumWidth = 8;
+            this.Telefon.Name = "Telefon";
+            // 
             // frmAdres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1249, 644);
+            this.ClientSize = new System.Drawing.Size(1308, 708);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -189,5 +216,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSec;
         private System.Windows.Forms.DataGridView dgvAdresler;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Baslık;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Adres;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefon;
     }
 }

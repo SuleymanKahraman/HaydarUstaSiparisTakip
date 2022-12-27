@@ -61,6 +61,7 @@ namespace HaydarUsta
                     if (sorgu)
                     {
                         MessageBox.Show("Bu kullanıcı daha önce kayıt olmuş. Lütfen giriş yapınız.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ClearAll();
                     }
                     else
                     {
@@ -68,11 +69,12 @@ namespace HaydarUsta
                         if (add)
                         {
                             MessageBox.Show("İşleminiz Başarıyla Gerçekleşti.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ClearAll();
+                            this.Close();
                         }
                         else
                         {
                             MessageBox.Show("Kayıt İşlemi Başarısız.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearAll();
                         }
                     }
                     

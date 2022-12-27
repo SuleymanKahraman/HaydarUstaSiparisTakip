@@ -1,6 +1,6 @@
 ﻿namespace HaydarUsta
 {
-    partial class frmMusteri
+    partial class frmSiparisGuncelle
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMusteri));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.rbKrediKarti = new System.Windows.Forms.RadioButton();
-            this.rbNakit = new System.Windows.Forms.RadioButton();
-            this.lbFatura = new System.Windows.Forms.ListBox();
-            this.btnSiparisVer = new System.Windows.Forms.Button();
             this.gbIcecek = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
             this.nmFanta = new System.Windows.Forms.NumericUpDown();
@@ -106,13 +98,13 @@
             this.cbLahmacun = new System.Windows.Forms.CheckBox();
             this.cbEtli = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.musteriBilgileriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.siparisBilgileriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adresBilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hesabıSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblİsim = new System.Windows.Forms.Label();
+            this.rbKrediKarti = new System.Windows.Forms.RadioButton();
+            this.rbNakit = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTutar = new System.Windows.Forms.Label();
             this.btnYeniSiparis = new System.Windows.Forms.Button();
+            this.btnAdresSayfa = new System.Windows.Forms.Button();
             this.gbIcecek.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFanta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmKola)).BeginInit();
@@ -137,75 +129,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmUsta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmKofte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmTavukSis)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, -132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(407, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 20);
-            this.label2.TabIndex = 21;
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(497, 49);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(88, 20);
-            this.lblWelcome.TabIndex = 55;
-            this.lblWelcome.Text = "Hoşgeldin: ";
-            // 
-            // rbKrediKarti
-            // 
-            this.rbKrediKarti.AutoSize = true;
-            this.rbKrediKarti.Location = new System.Drawing.Point(1456, 581);
-            this.rbKrediKarti.Name = "rbKrediKarti";
-            this.rbKrediKarti.Size = new System.Drawing.Size(106, 24);
-            this.rbKrediKarti.TabIndex = 111;
-            this.rbKrediKarti.Text = "Kredi Kartı";
-            this.rbKrediKarti.UseVisualStyleBackColor = true;
-            // 
-            // rbNakit
-            // 
-            this.rbNakit.AutoSize = true;
-            this.rbNakit.Checked = true;
-            this.rbNakit.Location = new System.Drawing.Point(1307, 581);
-            this.rbNakit.Name = "rbNakit";
-            this.rbNakit.Size = new System.Drawing.Size(70, 24);
-            this.rbNakit.TabIndex = 110;
-            this.rbNakit.TabStop = true;
-            this.rbNakit.Text = "Nakit";
-            this.rbNakit.UseVisualStyleBackColor = true;
-            // 
-            // lbFatura
-            // 
-            this.lbFatura.FormattingEnabled = true;
-            this.lbFatura.ItemHeight = 20;
-            this.lbFatura.Location = new System.Drawing.Point(1267, 181);
-            this.lbFatura.Name = "lbFatura";
-            this.lbFatura.Size = new System.Drawing.Size(385, 384);
-            this.lbFatura.TabIndex = 109;
-            // 
-            // btnSiparisVer
-            // 
-            this.btnSiparisVer.Location = new System.Drawing.Point(1267, 621);
-            this.btnSiparisVer.Name = "btnSiparisVer";
-            this.btnSiparisVer.Size = new System.Drawing.Size(385, 108);
-            this.btnSiparisVer.TabIndex = 106;
-            this.btnSiparisVer.Text = "TAMAM";
-            this.btnSiparisVer.UseVisualStyleBackColor = true;
-            this.btnSiparisVer.Click += new System.EventHandler(this.btnSiparisVer_Click);
             // 
             // gbIcecek
             // 
@@ -231,10 +155,10 @@
             this.gbIcecek.Controls.Add(this.cbAayran);
             this.gbIcecek.Controls.Add(this.cbLipton);
             this.gbIcecek.Controls.Add(this.cbSalgam);
-            this.gbIcecek.Location = new System.Drawing.Point(844, 172);
+            this.gbIcecek.Location = new System.Drawing.Point(778, 63);
             this.gbIcecek.Name = "gbIcecek";
             this.gbIcecek.Size = new System.Drawing.Size(370, 412);
-            this.gbIcecek.TabIndex = 105;
+            this.gbIcecek.TabIndex = 109;
             this.gbIcecek.TabStop = false;
             this.gbIcecek.Text = "İÇEÇEKLER";
             // 
@@ -523,10 +447,10 @@
             this.gbMzSlt.Controls.Add(this.cbZeytin);
             this.gbMzSlt.Controls.Add(this.cbCoban);
             this.gbMzSlt.Controls.Add(this.cbTursu);
-            this.gbMzSlt.Location = new System.Drawing.Point(454, 172);
+            this.gbMzSlt.Location = new System.Drawing.Point(388, 63);
             this.gbMzSlt.Name = "gbMzSlt";
             this.gbMzSlt.Size = new System.Drawing.Size(368, 412);
-            this.gbMzSlt.TabIndex = 104;
+            this.gbMzSlt.TabIndex = 108;
             this.gbMzSlt.TabStop = false;
             this.gbMzSlt.Text = "MEZE/SALATA";
             // 
@@ -815,10 +739,10 @@
             this.gbAnaYemek.Controls.Add(this.cbUsta);
             this.gbAnaYemek.Controls.Add(this.cbLahmacun);
             this.gbAnaYemek.Controls.Add(this.cbEtli);
-            this.gbAnaYemek.Location = new System.Drawing.Point(78, 172);
+            this.gbAnaYemek.Location = new System.Drawing.Point(12, 63);
             this.gbAnaYemek.Name = "gbAnaYemek";
             this.gbAnaYemek.Size = new System.Drawing.Size(360, 412);
-            this.gbAnaYemek.TabIndex = 103;
+            this.gbAnaYemek.TabIndex = 107;
             this.gbAnaYemek.TabStop = false;
             this.gbAnaYemek.Text = "ANA YEMEKLER";
             // 
@@ -1086,97 +1010,100 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(587, 133);
+            this.label3.Location = new System.Drawing.Point(521, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(183, 20);
-            this.label3.TabIndex = 102;
+            this.label3.TabIndex = 106;
             this.label3.Text = "SİPARİŞLERİ SEÇİNİZ:";
             // 
-            // menuStrip1
+            // rbKrediKarti
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.musteriBilgileriToolStripMenuItem,
-            this.siparisBilgileriToolStripMenuItem,
-            this.adresBilToolStripMenuItem,
-            this.hesabıSilToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1728, 33);
-            this.menuStrip1.TabIndex = 112;
-            this.menuStrip1.Text = "menuStrip1";
+            this.rbKrediKarti.AutoSize = true;
+            this.rbKrediKarti.Location = new System.Drawing.Point(294, 591);
+            this.rbKrediKarti.Name = "rbKrediKarti";
+            this.rbKrediKarti.Size = new System.Drawing.Size(106, 24);
+            this.rbKrediKarti.TabIndex = 113;
+            this.rbKrediKarti.Text = "Kredi Kartı";
+            this.rbKrediKarti.UseVisualStyleBackColor = true;
             // 
-            // musteriBilgileriToolStripMenuItem
+            // rbNakit
             // 
-            this.musteriBilgileriToolStripMenuItem.Name = "musteriBilgileriToolStripMenuItem";
-            this.musteriBilgileriToolStripMenuItem.Size = new System.Drawing.Size(140, 29);
-            this.musteriBilgileriToolStripMenuItem.Text = "Profil Güncelle";
-            this.musteriBilgileriToolStripMenuItem.Click += new System.EventHandler(this.musteriBilgileriToolStripMenuItem_Click);
+            this.rbNakit.AutoSize = true;
+            this.rbNakit.Checked = true;
+            this.rbNakit.Location = new System.Drawing.Point(208, 591);
+            this.rbNakit.Name = "rbNakit";
+            this.rbNakit.Size = new System.Drawing.Size(70, 24);
+            this.rbNakit.TabIndex = 112;
+            this.rbNakit.TabStop = true;
+            this.rbNakit.Text = "Nakit";
+            this.rbNakit.UseVisualStyleBackColor = true;
             // 
-            // siparisBilgileriToolStripMenuItem
+            // label1
             // 
-            this.siparisBilgileriToolStripMenuItem.Name = "siparisBilgileriToolStripMenuItem";
-            this.siparisBilgileriToolStripMenuItem.Size = new System.Drawing.Size(154, 29);
-            this.siparisBilgileriToolStripMenuItem.Text = "Siparis Detayları";
-            this.siparisBilgileriToolStripMenuItem.Click += new System.EventHandler(this.siparisBilgileriToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 595);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 20);
+            this.label1.TabIndex = 114;
+            this.label1.Text = "Ödeme Yöntemi Seçiniz:";
             // 
-            // adresBilToolStripMenuItem
+            // label2
             // 
-            this.adresBilToolStripMenuItem.Name = "adresBilToolStripMenuItem";
-            this.adresBilToolStripMenuItem.Size = new System.Drawing.Size(144, 29);
-            this.adresBilToolStripMenuItem.Text = "Adres İşlemleri";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 559);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.TabIndex = 115;
+            this.label2.Text = "Tutar: ";
             // 
-            // hesabıSilToolStripMenuItem
+            // lblTutar
             // 
-            this.hesabıSilToolStripMenuItem.Name = "hesabıSilToolStripMenuItem";
-            this.hesabıSilToolStripMenuItem.Size = new System.Drawing.Size(105, 29);
-            this.hesabıSilToolStripMenuItem.Text = "Hesabı Sil";
-            this.hesabıSilToolStripMenuItem.Click += new System.EventHandler(this.hesabıSilToolStripMenuItem_Click);
-            // 
-            // lblİsim
-            // 
-            this.lblİsim.AutoSize = true;
-            this.lblİsim.Location = new System.Drawing.Point(591, 49);
-            this.lblİsim.Name = "lblİsim";
-            this.lblİsim.Size = new System.Drawing.Size(79, 20);
-            this.lblİsim.TabIndex = 113;
-            this.lblİsim.Text = "Ad-Soyad";
+            this.lblTutar.AutoSize = true;
+            this.lblTutar.Location = new System.Drawing.Point(78, 559);
+            this.lblTutar.Name = "lblTutar";
+            this.lblTutar.Size = new System.Drawing.Size(40, 20);
+            this.lblTutar.TabIndex = 116;
+            this.lblTutar.Text = "0 TL";
             // 
             // btnYeniSiparis
             // 
-            this.btnYeniSiparis.Location = new System.Drawing.Point(78, 606);
+            this.btnYeniSiparis.Location = new System.Drawing.Point(780, 521);
             this.btnYeniSiparis.Name = "btnYeniSiparis";
-            this.btnYeniSiparis.Size = new System.Drawing.Size(360, 64);
-            this.btnYeniSiparis.TabIndex = 114;
-            this.btnYeniSiparis.Text = "SİPARİŞİ YENİLE";
+            this.btnYeniSiparis.Size = new System.Drawing.Size(368, 108);
+            this.btnYeniSiparis.TabIndex = 117;
+            this.btnYeniSiparis.Text = "YENİ SİPARİŞ";
             this.btnYeniSiparis.UseVisualStyleBackColor = true;
             this.btnYeniSiparis.Click += new System.EventHandler(this.btnYeniSiparis_Click);
             // 
-            // frmMusteri
+            // btnAdresSayfa
+            // 
+            this.btnAdresSayfa.Location = new System.Drawing.Point(1183, 74);
+            this.btnAdresSayfa.Name = "btnAdresSayfa";
+            this.btnAdresSayfa.Size = new System.Drawing.Size(142, 113);
+            this.btnAdresSayfa.TabIndex = 118;
+            this.btnAdresSayfa.Text = "ADRES SEÇ";
+            this.btnAdresSayfa.UseVisualStyleBackColor = true;
+            this.btnAdresSayfa.Click += new System.EventHandler(this.btnAdresSayfa_Click);
+            // 
+            // frmSiparisGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1728, 854);
+            this.ClientSize = new System.Drawing.Size(1355, 727);
+            this.Controls.Add(this.btnAdresSayfa);
             this.Controls.Add(this.btnYeniSiparis);
-            this.Controls.Add(this.lblİsim);
+            this.Controls.Add(this.lblTutar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.rbKrediKarti);
             this.Controls.Add(this.rbNakit);
-            this.Controls.Add(this.lbFatura);
-            this.Controls.Add(this.btnSiparisVer);
             this.Controls.Add(this.gbIcecek);
             this.Controls.Add(this.gbMzSlt);
             this.Controls.Add(this.gbAnaYemek);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblWelcome);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmMusteri";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Müsteri Sayfası";
-            this.Load += new System.EventHandler(this.frmKullanici_Load);
+            this.Name = "frmSiparisGuncelle";
+            this.Text = "Güncelleme Ekranı";
+            this.Load += new System.EventHandler(this.frmSiparisGuncelle_Load);
             this.gbIcecek.ResumeLayout(false);
             this.gbIcecek.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFanta)).EndInit();
@@ -1204,8 +1131,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmUsta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmKofte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmTavukSis)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1213,13 +1138,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.RadioButton rbKrediKarti;
-        private System.Windows.Forms.RadioButton rbNakit;
-        private System.Windows.Forms.ListBox lbFatura;
-        private System.Windows.Forms.Button btnSiparisVer;
         private System.Windows.Forms.GroupBox gbIcecek;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.NumericUpDown nmFanta;
@@ -1290,12 +1208,12 @@
         private System.Windows.Forms.CheckBox cbLahmacun;
         private System.Windows.Forms.CheckBox cbEtli;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem musteriBilgileriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem siparisBilgileriToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adresBilToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hesabıSilToolStripMenuItem;
-        private System.Windows.Forms.Label lblİsim;
+        private System.Windows.Forms.RadioButton rbKrediKarti;
+        private System.Windows.Forms.RadioButton rbNakit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTutar;
         private System.Windows.Forms.Button btnYeniSiparis;
+        private System.Windows.Forms.Button btnAdresSayfa;
     }
 }

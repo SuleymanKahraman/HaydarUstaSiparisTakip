@@ -75,7 +75,7 @@ namespace HaydarUsta
             
         }
 
-        public bool SiparisEkle(MenuModel menuModel)
+        public bool SiparisEkle(SiparisModel menuModel)
         {
             SqlCommand cmd = new SqlCommand($"INSERT INTO Siparisler(Musteri_Id, Siparis, SiparisTarihi, OdemeTutari, OdemeYontemi, Adres, Telefon) VALUES (@Musteri_Id, @Siparis, @SiparisTarihi, @OdemeTutari, @OdemeYontemi, @Adres, @Telefon)", connection);
             connection.Open();
@@ -93,6 +93,75 @@ namespace HaydarUsta
                 return true;
             }
             return false;
+        }
+
+        public bool MusteriSilme(int ıd)
+        {
+            SqlCommand sil = new SqlCommand($"DELETE FROM Musteriler WHERE Id = '{ıd}'", connection);
+            connection.Open();
+            sil.Parameters.AddWithValue("Id", ıd);
+            var result = sil.ExecuteNonQuery();
+            connection.Close();
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;   
+        }
+
+        public bool MusteriGuncelle(LoginModel model)
+        {
+            SqlCommand guncelle = new SqlCommand($"UPDATE Musteriler SET Ad=@Ad, Soyad=@Soyad, EmailAdres=@EmailAdres, Parola=@Parola WHERE Id= '{model.Id}'", connection);
+            connection.Open();
+            guncelle.Parameters.AddWithValue("Id", model.Id);
+            guncelle.Parameters.AddWithValue("Ad", model.ad);
+            guncelle.Parameters.AddWithValue("Soyad", model.soyad);
+            guncelle.Parameters.AddWithValue("EmailAdres", model.EmailAdres);
+            guncelle.Parameters.AddWithValue("Parola", model.Parola);
+            var result = guncelle.ExecuteNonQuery();
+            connection.Close();
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool SiparisGuncelle(SiparisModel model)
+        {
+            SqlCommand guncelle = new SqlCommand($"UPDATE Siparisler SET Siparis=@Siparis, SiparisTarihi=@SiparisTarihi, OdemeTutari=@OdemeTutari, OdemeYontemi=@OdemeYontemi, Adres=@Adres, Telefon=@Telefon WHERE Id = '{model.Siparis_Id}' ",connection);
+            connection.Open();
+            guncelle.Parameters.AddWithValue("Id", model.Siparis_Id);
+            guncelle.Parameters.AddWithValue("Siparis", model.siparis);
+            guncelle.Parameters.AddWithValue("SiparisTarihi", model.siparisTarih);
+            guncelle.Parameters.AddWithValue("OdemeTutari", model.odemeTurari);
+            guncelle.Parameters.AddWithValue("OdemeYontemi", model.odemeYontemi);
+            guncelle.Parameters.AddWithValue("Adres", model.adres);
+            guncelle.Parameters.AddWithValue("Telefon", model.telefon);
+            var result = guncelle.ExecuteNonQuery();
+            connection.Close();
+            if (result > 0)
+            {
+                return true;    
+            }
+            return false;
+        }
+
+        public int VeriAl(SiparisModel model)
+        {
+            SqlCommand oneValue = new SqlCommand($"SELECT Id FROM Siparisler WHERE Siparis='{model.siparis}'", connection);
+            connection.Open();
+            SqlDataReader dr = oneValue.ExecuteReader();
+            dr.Read();
+            if (dr.HasRows)
+            {
+                int Id = (int)dr.GetValue(0);
+                connection.Close();
+                return Id;
+               
+            }
+            connection.Close();
+            return 0;
         }
     }
 }
