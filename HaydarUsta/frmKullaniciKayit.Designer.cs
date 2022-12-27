@@ -131,6 +131,7 @@
             this.btnKayit.Name = "btnKayit";
             this.btnKayit.Size = new System.Drawing.Size(381, 71);
             this.btnKayit.TabIndex = 23;
+            this.btnKayit.TabStop = false;
             this.btnKayit.Text = "Kaydet";
             this.btnKayit.UseVisualStyleBackColor = true;
             this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);

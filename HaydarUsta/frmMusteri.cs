@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,6 @@ namespace HaydarUsta
         private SiparisModel siparis;
         private DataHelper helper;
         private MenuModel menu;
-        List<string> MenuList = new List<string>();
         public frmMusteri(LoginModel model)
         {
             InitializeComponent();
@@ -87,18 +87,21 @@ namespace HaydarUsta
             lbFatura.Items.Add(" ");
             lbFatura.Items.Add("**********");
             lbFatura.Items.Add(" ");
-            foreach (var item in MenuList)
+            foreach (var prop in typeof(MenuModel).GetProperties())
             {
-                lbFatura.Items.Add(item.ToString());
+                var prop1 = prop.GetValue(menu);
+                if (prop1 == null)
+                {
+                    continue;
+                }
+                lbFatura.Items.Add(prop.GetValue(menu));
             }
             lbFatura.Items.Add(" ");
             lbFatura.Items.Add("**********");
-            lbFatura.Items.Add(" ");
             lbFatura.Items.Add($"Toplam Siparis Tutarı: {siparis.odemeTurari} TL.");
             lbFatura.Items.Add($"Ödeme Yöntemi: {siparis.odemeYontemi}");
             lbFatura.Items.Add(" ");
             lbFatura.Items.Add("**********");
-            lbFatura.Items.Add(" ");
             lbFatura.Items.Add($"Adres: {siparis.adres}");
             lbFatura.Items.Add($"Telefon: {siparis.telefon}");
         }
@@ -112,10 +115,16 @@ namespace HaydarUsta
         }
         private string SiparisList()
         {
+            // Class Properties'lerden veri aktarma
             string siparis = string.Empty;
-            foreach (var item in MenuList)
+            foreach (var prop in typeof(MenuModel).GetProperties())
             {
-                siparis += item.ToString() + " ";
+                var prop1 = prop.GetValue(menu);
+                if (prop1 == null)
+                {
+                    continue;
+                }
+                siparis += prop.GetValue(menu);
             }
             return siparis;
         }
@@ -127,127 +136,125 @@ namespace HaydarUsta
             {
                 ucret += (nmAdanaKebap.Value * 78);
                 menu.adanaKebab = $" {nmAdanaKebap.Value} Adet Adana Kebap";
-                //MenuList.Add($" {nmAdanaKebap.Value} Adet Adana Kebap");
             }
             if (cbTantuni.Checked)
             {
                 ucret += (nmTantuni.Value * 65);
-                MenuList.Add($" {nmTantuni.Value} Adet Tantuni");
+                menu.tantuni = $" {nmTantuni.Value} Adet Tantuni";
 
             }
             if (cbTavukSis.Checked)
             {
                 ucret += (nmTavukSis.Value * 65);
-                MenuList.Add($" {nmTavukSis.Value} Adet Tavuk Şiş");
+                menu.tavukSis = $" {nmTavukSis.Value} Adet Tavuk Şiş";
 
             }
             if (cbKofte.Checked)
             {
                 ucret += (nmKofte.Value * 72);
-                MenuList.Add($" {nmKofte.Value} Adet Köfte");
+                menu.kofte = $" {nmKofte.Value} Adet Köfte";
 
             }
             if (cbUsta.Checked)
             {
                 ucret += (nmUsta.Value * 80);
-                MenuList.Add($" {nmUsta.Value} Adet Ustanın Sipesiyeli");
+                menu.ustaSpesiyel = $" {nmUsta.Value} Adet Ustanın Sipesiyeli";
 
             }
             if (cbLahmacun.Checked)
             {
                 ucret += (nmLahmacun.Value * 25);
-                MenuList.Add($" {nmLahmacun.Value} Adet Lahmacun");
+                menu.lahmacun = $" {nmLahmacun.Value} Adet Lahmacun";
 
             }
             if (cbEtli.Checked)
             {
                 ucret += (nmEtli.Value * 58);
-                MenuList.Add($" {nmEtli.Value} Adet Etli Ekmek");
+                menu.etliEkmek = $" {nmEtli.Value} Adet Etli Ekmek";
 
             }
             if (cbHumus.Checked)
             {
                 ucret += (nmHumus.Value * 20);
-                MenuList.Add($" {nmHumus.Value} Adet Humus");
+                menu.humus = $" {nmHumus.Value} Adet Humus";
 
             }
             if (cbTarator.Checked)
             {
                 ucret += (nmTarator.Value * 20);
-                MenuList.Add($" {nmTarator.Value} Adet Tarator");
+                menu.tarator = $" {nmTarator.Value} Adet Tarator";
 
             }
             if (cbAtom.Checked)
             {
                 ucret += (nmAtom.Value * 25);
-                MenuList.Add($" {nmAtom.Value} Adet Atom");
+                menu.atom = $" {nmAtom.Value} Adet Atom";
 
             }
             if (cbOcce.Checked)
             {
                 ucret += (nmOcce.Value * 25);
-                MenuList.Add($" {nmOcce.Value} Adet Öcce");
+                menu.occe = $" {nmOcce.Value} Adet Öcce";
 
             }
             if (cbZeytin.Checked)
             {
                 ucret += (nmZeytin.Value * 15);
-                MenuList.Add($" {nmZeytin.Value} Adet Zeytin Salatası");
+                menu.zeytinSalata = $" {nmZeytin.Value} Adet Zeytin Salatası";
 
             }
             if (cbCoban.Checked)
             {
                 ucret += (nmCoban.Value * 15);
-                MenuList.Add($" {nmCoban.Value} Adet Çoban Salatası");
+                menu.cobanSalata = $" {nmCoban.Value} Adet Çoban Salatası";
 
             }
             if (cbTursu.Checked)
             {
                 ucret += (nmTursu.Value * 10);
-                MenuList.Add($" {nmTursu.Value} Adet Turşu");
+                menu.tursu = $" {nmTursu.Value} Adet Turşu";
 
             }
             if (cbKola.Checked)
             {
                 ucret += (nmKola.Value * 8);
-                MenuList.Add($" {nmKola.Value} Adet Kola");
+                menu.kola = $" {nmKola.Value} Adet Kola";
 
             }
             if (cbFanta.Checked)
             {
                 ucret += (nmFanta.Value * 8);
-                MenuList.Add($" {nmFanta.Value} Adet Fanta");
+                menu.fanta = $" {nmFanta.Value} Adet Fanta";
 
             }
             if (cbKayran.Checked)
             {
                 ucret += (nmKayran.Value * 6);
-                MenuList.Add($" {nmKayran.Value} Adet Kapalı Ayran");
+                menu.kAyran = $" {nmKayran.Value} Adet Kapalı Ayran";
 
             }
             if (cbAayran.Checked)
             {
                 ucret += (nmAayran.Value * 10);
-                MenuList.Add($" {nmAayran.Value} Adet Açık Ayran");
+                menu.aAyran = $" {nmAayran.Value} Adet Açık Ayran";
 
             }
             if (cbSalgam.Checked)
             {
                 ucret += (nmSalgam.Value * 8);
-                MenuList.Add($" {nmSalgam.Value} Adet Salgam");
+                menu.salgam = $" {nmSalgam.Value} Adet Salgam";
 
             }
             if (cbLipton.Checked)
             {
                 ucret += (nmLipton.Value * 8);
-                MenuList.Add($" {nmLipton.Value} Adet Lipton Ice Tea");
+                menu.liptonIcetea = $" {nmLipton.Value} Adet Lipton Ice Tea";
 
             }
             if (cbSu.Checked)
             {
                 ucret += (nmSu.Value * 5);
-                MenuList.Add($" {nmSu.Value} Adet Su");
-
+                menu.su = $" {nmSu.Value} Adet Su";
             }
             return ucret;
 
@@ -291,14 +298,16 @@ namespace HaydarUsta
 
         private void siparisBilgileriToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSiparisBilgileri siparisBilgiler = new frmSiparisBilgileri(siparis,MenuList);
+            frmSiparisBilgileri siparisBilgiler = new frmSiparisBilgileri(siparis,menu);
             siparisBilgiler.ShowDialog();
             siparisBilgiler.Dispose();
+            lbFatura.Items.Clear();
+            Clear();
         }
 
-        private void musteriBilgileriToolStripMenuItem_Click(object sender, EventArgs e)
+        private void musteriGuncelleToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frmMusteriBilgileri musteriBilgileri = new frmMusteriBilgileri(login);
+            frmMusteriGuncelle musteriBilgileri = new frmMusteriGuncelle(login);
             musteriBilgileri.ShowDialog();
             musteriBilgileri.Dispose();
         }
@@ -327,5 +336,7 @@ namespace HaydarUsta
         {
             Clear();
         }
+
+       
     }
 }

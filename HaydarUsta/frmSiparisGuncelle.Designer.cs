@@ -101,8 +101,6 @@
             this.rbKrediKarti = new System.Windows.Forms.RadioButton();
             this.rbNakit = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTutar = new System.Windows.Forms.Label();
             this.btnYeniSiparis = new System.Windows.Forms.Button();
             this.btnAdresSayfa = new System.Windows.Forms.Button();
             this.gbIcecek.SuspendLayout();
@@ -1019,7 +1017,7 @@
             // rbKrediKarti
             // 
             this.rbKrediKarti.AutoSize = true;
-            this.rbKrediKarti.Location = new System.Drawing.Point(294, 591);
+            this.rbKrediKarti.Location = new System.Drawing.Point(304, 500);
             this.rbKrediKarti.Name = "rbKrediKarti";
             this.rbKrediKarti.Size = new System.Drawing.Size(106, 24);
             this.rbKrediKarti.TabIndex = 113;
@@ -1030,7 +1028,7 @@
             // 
             this.rbNakit.AutoSize = true;
             this.rbNakit.Checked = true;
-            this.rbNakit.Location = new System.Drawing.Point(208, 591);
+            this.rbNakit.Location = new System.Drawing.Point(218, 500);
             this.rbNakit.Name = "rbNakit";
             this.rbNakit.Size = new System.Drawing.Size(70, 24);
             this.rbNakit.TabIndex = 112;
@@ -1041,29 +1039,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 595);
+            this.label1.Location = new System.Drawing.Point(18, 504);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 20);
             this.label1.TabIndex = 114;
             this.label1.Text = "Ödeme Yöntemi Seçiniz:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 559);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
-            this.label2.TabIndex = 115;
-            this.label2.Text = "Tutar: ";
-            // 
-            // lblTutar
-            // 
-            this.lblTutar.AutoSize = true;
-            this.lblTutar.Location = new System.Drawing.Point(78, 559);
-            this.lblTutar.Name = "lblTutar";
-            this.lblTutar.Size = new System.Drawing.Size(40, 20);
-            this.lblTutar.TabIndex = 116;
-            this.lblTutar.Text = "0 TL";
             // 
             // btnYeniSiparis
             // 
@@ -1071,6 +1051,7 @@
             this.btnYeniSiparis.Name = "btnYeniSiparis";
             this.btnYeniSiparis.Size = new System.Drawing.Size(368, 108);
             this.btnYeniSiparis.TabIndex = 117;
+            this.btnYeniSiparis.TabStop = false;
             this.btnYeniSiparis.Text = "YENİ SİPARİŞ";
             this.btnYeniSiparis.UseVisualStyleBackColor = true;
             this.btnYeniSiparis.Click += new System.EventHandler(this.btnYeniSiparis_Click);
@@ -1081,6 +1062,7 @@
             this.btnAdresSayfa.Name = "btnAdresSayfa";
             this.btnAdresSayfa.Size = new System.Drawing.Size(142, 113);
             this.btnAdresSayfa.TabIndex = 118;
+            this.btnAdresSayfa.TabStop = false;
             this.btnAdresSayfa.Text = "ADRES SEÇ";
             this.btnAdresSayfa.UseVisualStyleBackColor = true;
             this.btnAdresSayfa.Click += new System.EventHandler(this.btnAdresSayfa_Click);
@@ -1092,8 +1074,6 @@
             this.ClientSize = new System.Drawing.Size(1355, 727);
             this.Controls.Add(this.btnAdresSayfa);
             this.Controls.Add(this.btnYeniSiparis);
-            this.Controls.Add(this.lblTutar);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rbKrediKarti);
             this.Controls.Add(this.rbNakit);
@@ -1211,8 +1191,6 @@
         private System.Windows.Forms.RadioButton rbKrediKarti;
         private System.Windows.Forms.RadioButton rbNakit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblTutar;
         private System.Windows.Forms.Button btnYeniSiparis;
         private System.Windows.Forms.Button btnAdresSayfa;
     }

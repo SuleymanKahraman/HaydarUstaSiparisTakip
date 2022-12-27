@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HaydarUsta
 {
-    public class AddModel
+    public class MusteriEkleModel
     {
         public string ad { get; set; }
         public string soyad { get; set; }

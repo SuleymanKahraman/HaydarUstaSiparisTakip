@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace HaydarUsta
 {
-    public partial class frmMusteriBilgileri : Form
+    public partial class frmMusteriGuncelle : Form
     {
         private DataHelper helper;
         public LoginModel Model;
 
-        public frmMusteriBilgileri(LoginModel model)
+        public frmMusteriGuncelle(LoginModel model)
         {
             InitializeComponent();
             helper = new DataHelper();
@@ -41,6 +41,7 @@ namespace HaydarUsta
             if (result)
             {
                 MessageBox.Show("Güncelleme İşlemi Başarılı.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {

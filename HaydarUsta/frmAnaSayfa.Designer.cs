@@ -98,6 +98,7 @@
             this.btnGiris.Name = "btnGiris";
             this.btnGiris.Size = new System.Drawing.Size(337, 72);
             this.btnGiris.TabIndex = 26;
+            this.btnGiris.TabStop = false;
             this.btnGiris.Text = "Giriş";
             this.btnGiris.UseVisualStyleBackColor = true;
             this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click_1);

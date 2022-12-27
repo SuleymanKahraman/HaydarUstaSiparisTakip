@@ -107,7 +107,7 @@
             this.cbEtli = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.musteriBilgileriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.musteriGuncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.siparisBilgileriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adresBilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hesabıSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -191,10 +191,11 @@
             // lbFatura
             // 
             this.lbFatura.FormattingEnabled = true;
+            this.lbFatura.HorizontalScrollbar = true;
             this.lbFatura.ItemHeight = 20;
-            this.lbFatura.Location = new System.Drawing.Point(1267, 181);
+            this.lbFatura.Location = new System.Drawing.Point(1243, 172);
             this.lbFatura.Name = "lbFatura";
-            this.lbFatura.Size = new System.Drawing.Size(385, 384);
+            this.lbFatura.Size = new System.Drawing.Size(409, 384);
             this.lbFatura.TabIndex = 109;
             // 
             // btnSiparisVer
@@ -203,6 +204,7 @@
             this.btnSiparisVer.Name = "btnSiparisVer";
             this.btnSiparisVer.Size = new System.Drawing.Size(385, 108);
             this.btnSiparisVer.TabIndex = 106;
+            this.btnSiparisVer.TabStop = false;
             this.btnSiparisVer.Text = "TAMAM";
             this.btnSiparisVer.UseVisualStyleBackColor = true;
             this.btnSiparisVer.Click += new System.EventHandler(this.btnSiparisVer_Click);
@@ -1097,22 +1099,22 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.musteriBilgileriToolStripMenuItem,
+            this.musteriGuncelleToolStripMenuItem,
             this.siparisBilgileriToolStripMenuItem,
             this.adresBilToolStripMenuItem,
             this.hesabıSilToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1728, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1742, 33);
             this.menuStrip1.TabIndex = 112;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // musteriBilgileriToolStripMenuItem
+            // musteriGuncelleToolStripMenuItem
             // 
-            this.musteriBilgileriToolStripMenuItem.Name = "musteriBilgileriToolStripMenuItem";
-            this.musteriBilgileriToolStripMenuItem.Size = new System.Drawing.Size(140, 29);
-            this.musteriBilgileriToolStripMenuItem.Text = "Profil Güncelle";
-            this.musteriBilgileriToolStripMenuItem.Click += new System.EventHandler(this.musteriBilgileriToolStripMenuItem_Click);
+            this.musteriGuncelleToolStripMenuItem.Name = "musteriGuncelleToolStripMenuItem";
+            this.musteriGuncelleToolStripMenuItem.Size = new System.Drawing.Size(140, 29);
+            this.musteriGuncelleToolStripMenuItem.Text = "Profil Güncelle";
+            this.musteriGuncelleToolStripMenuItem.Click += new System.EventHandler(this.musteriGuncelleToolStripMenuItem_Click_1);
             // 
             // siparisBilgileriToolStripMenuItem
             // 
@@ -1149,6 +1151,7 @@
             this.btnYeniSiparis.Name = "btnYeniSiparis";
             this.btnYeniSiparis.Size = new System.Drawing.Size(360, 64);
             this.btnYeniSiparis.TabIndex = 114;
+            this.btnYeniSiparis.TabStop = false;
             this.btnYeniSiparis.Text = "SİPARİŞİ YENİLE";
             this.btnYeniSiparis.UseVisualStyleBackColor = true;
             this.btnYeniSiparis.Click += new System.EventHandler(this.btnYeniSiparis_Click);
@@ -1157,7 +1160,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1728, 854);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1742, 844);
             this.Controls.Add(this.btnYeniSiparis);
             this.Controls.Add(this.lblİsim);
             this.Controls.Add(this.rbKrediKarti);
@@ -1291,7 +1295,7 @@
         private System.Windows.Forms.CheckBox cbEtli;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem musteriBilgileriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem musteriGuncelleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem siparisBilgileriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adresBilToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hesabıSilToolStripMenuItem;

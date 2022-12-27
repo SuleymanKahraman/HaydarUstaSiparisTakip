@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HaydarUsta
 {
@@ -19,7 +21,7 @@ namespace HaydarUsta
             connection = new SqlConnection("Data Source=LAPTOP-VMEL2LCP\\SQLEXPRESS01;Initial Catalog=HaydarUsta;Integrated Security=True");
         }
         
-        public bool AddMusteri (AddModel model)
+        public bool AddMusteri (MusteriEkleModel model)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO Musteriler (Ad, Soyad, EmailAdres, Parola) VALUES (@Ad, @Soyad, @EmailAdres, @Parola)", connection);
             connection.Open();
@@ -60,7 +62,7 @@ namespace HaydarUsta
             return dt;
         }
 
-        public bool AddSorgu(AddModel model)
+        public bool AddSorgu(MusteriEkleModel model)
         {
             connection.Open();
             SqlCommand cmd = new SqlCommand($"SELECT * FROM Musteriler WHERE Ad = '{model.ad}' AND Soyad = '{model.soyad}'", connection);
@@ -109,6 +111,34 @@ namespace HaydarUsta
             return false;   
         }
 
+        public bool SiparisSilme(int Id)
+        {
+            SqlCommand sil = new SqlCommand($"DELETE FROM Siparisler WHERE Id = '{Id}'", connection);
+            connection.Open();
+            sil.Parameters.AddWithValue("Id", Id);
+            var result = sil.ExecuteNonQuery();
+            connection.Close();
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool AdresSilme(int Id)
+        {
+            SqlCommand sil = new SqlCommand($"DELETE FROM Adresler WHERE Id = '{Id}'", connection);
+            connection.Open();
+            sil.Parameters.AddWithValue("Id", Id);
+            var result = sil.ExecuteNonQuery();
+            connection.Close();
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public bool MusteriGuncelle(LoginModel model)
         {
             SqlCommand guncelle = new SqlCommand($"UPDATE Musteriler SET Ad=@Ad, Soyad=@Soyad, EmailAdres=@EmailAdres, Parola=@Parola WHERE Id= '{model.Id}'", connection);
@@ -147,7 +177,7 @@ namespace HaydarUsta
             return false;
         }
 
-        public int VeriAl(SiparisModel model)
+        public int SiparisId(SiparisModel model)
         {
             SqlCommand oneValue = new SqlCommand($"SELECT Id FROM Siparisler WHERE Siparis='{model.siparis}'", connection);
             connection.Open();
@@ -162,6 +192,23 @@ namespace HaydarUsta
             }
             connection.Close();
             return 0;
+        }
+
+        public bool AdresGuncelle(AdresModel adres)
+        {
+            SqlCommand guncelle = new SqlCommand($"UPDATE Adresler SET Baslık=@Baslık, Adres=@Adres, Telefon=@Telefon WHERE Id = '{adres.Id}'", connection);
+            connection.Open();
+            guncelle.Parameters.AddWithValue("Id", adres.Id);
+            guncelle.Parameters.AddWithValue("Baslık", adres.baslik);
+            guncelle.Parameters.AddWithValue("Adres", adres.adres);
+            guncelle.Parameters.AddWithValue("Telefon", adres.telefon);
+            var result = guncelle.ExecuteNonQuery();
+            connection.Close();
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

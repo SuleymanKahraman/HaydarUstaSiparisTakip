@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HaydarUsta.Models
 {
-    internal class MenuModel
+    public class MenuModel
     {
         public string adanaKebab  { get; set; }
         public string tantuni  { get; set; }

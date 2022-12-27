@@ -62,18 +62,21 @@
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(193, 115);
             this.btnGuncelle.TabIndex = 16;
+            this.btnGuncelle.TabStop = false;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
             this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnIptal
             // 
-            this.btnIptal.Location = new System.Drawing.Point(841, 178);
+            this.btnIptal.Location = new System.Drawing.Point(841, 426);
             this.btnIptal.Name = "btnIptal";
             this.btnIptal.Size = new System.Drawing.Size(193, 115);
             this.btnIptal.TabIndex = 15;
+            this.btnIptal.TabStop = false;
             this.btnIptal.Text = "Siparis İptal";
             this.btnIptal.UseVisualStyleBackColor = true;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // frmSiparisBilgileri
             // 

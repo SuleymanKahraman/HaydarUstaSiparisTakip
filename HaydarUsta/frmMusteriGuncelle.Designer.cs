@@ -1,6 +1,6 @@
 ﻿namespace HaydarUsta
 {
-    partial class frmMusteriBilgileri
+    partial class frmMusteriGuncelle
     {
         /// <summary>
         /// Required designer variable.
@@ -131,18 +131,19 @@
             this.btnKayit.Name = "btnKayit";
             this.btnKayit.Size = new System.Drawing.Size(381, 71);
             this.btnKayit.TabIndex = 23;
+            this.btnKayit.TabStop = false;
             this.btnKayit.Text = "Güncelle";
             this.btnKayit.UseVisualStyleBackColor = true;
             this.btnKayit.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
-            // frmMusteriBilgileri
+            // frmMusteriGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1736, 864);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmMusteriBilgileri";
-            this.Text = "s";
+            this.Name = "frmMusteriGuncelle";
+            this.Text = "Guncelleme Ekranı";
             this.Load += new System.EventHandler(this.MusteriBilgileri_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

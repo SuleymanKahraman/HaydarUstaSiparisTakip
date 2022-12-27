@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace HaydarUsta
 {
+    //TODO: Button - TapStop: Program çalışırken butonun seçili olup olmayacağını belirliyor. 
 
     public partial class frmAnaSayfa : Form
     {

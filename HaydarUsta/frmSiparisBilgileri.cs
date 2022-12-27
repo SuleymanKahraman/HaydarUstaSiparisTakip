@@ -14,14 +14,16 @@ namespace HaydarUsta
 {
     public partial class frmSiparisBilgileri : Form
     {
-        private SiparisModel Model;
-        private readonly List<string> list;
+        private SiparisModel siparis;
+        private  MenuModel menu;
+        private DataHelper helper;
 
-        public frmSiparisBilgileri(SiparisModel model, List<string> list)
+        public frmSiparisBilgileri(SiparisModel siparis, MenuModel menu)
         {
             InitializeComponent();
-            Model = model;
-            this.list = list;
+            this.siparis= siparis;
+            this.menu= menu;
+            helper = new DataHelper();
         }
 
 
@@ -36,27 +38,53 @@ namespace HaydarUsta
             listSiparis.Items.Add(" ");
             listSiparis.Items.Add("**********");
             listSiparis.Items.Add(" ");
-            foreach (var item in list)
+            foreach (var prop in typeof(MenuModel).GetProperties())
             {
-                listSiparis.Items.Add(item.ToString());
+                var prop1 = prop.GetValue(menu);
+                if (prop1 == null)
+                {
+                    continue;
+                }
+                listSiparis.Items.Add(prop.GetValue(menu));
             }
             listSiparis.Items.Add(" ");
             listSiparis.Items.Add("**********");
-            listSiparis.Items.Add(" ");
-            listSiparis.Items.Add($"Toplam Siparis Tutarı: {Model.odemeTurari} TL.");
-            listSiparis.Items.Add($"Ödeme Yöntemi: {Model.odemeYontemi}");
+            listSiparis.Items.Add($"Toplam Siparis Tutarı: {siparis.odemeTurari} TL.");
+            listSiparis.Items.Add($"Ödeme Yöntemi: {siparis.odemeYontemi}");
             listSiparis.Items.Add(" ");
             listSiparis.Items.Add("**********");
-            listSiparis.Items.Add(" ");
-            listSiparis.Items.Add($"Adres: {Model.adres}");
-            listSiparis.Items.Add($"Telefon: {Model.telefon}");
+            listSiparis.Items.Add($"Adres: {siparis.adres}");
+            listSiparis.Items.Add($"Telefon: {siparis.telefon}");
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            frmSiparisGuncelle guncelle = new frmSiparisGuncelle(Model);
+
+            frmSiparisGuncelle guncelle = new frmSiparisGuncelle(siparis);
             guncelle.ShowDialog();
             guncelle.Dispose();
+            listSiparis.Items.Clear();
+            guncelle.SiparisFisi(listSiparis);
+
+        }
+
+        private void btnIptal_Click(object sender, EventArgs e)
+        {
+            DialogResult YesNo = MessageBox.Show("Siparişinizi iptal etmek istediğinizden emin misiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult == DialogResult.Yes)
+            {
+                int Id = helper.SiparisId(siparis);
+                var result = helper.SiparisSilme(Id);
+                if (result)
+                {
+                    MessageBox.Show("Siparişiniz iptal edilmiştir.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    listSiparis.Items.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("İptal işlemi başarısız. Tekrar deneyiniz.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace HaydarUsta
     public partial class frmKullaniciKayit : Form
     {
         private readonly DataHelper helper;
-        private AddModel model;
+        private MusteriEkleModel model;
         public frmKullaniciKayit()
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace HaydarUsta
                 }
                 else
                 {
-                    model = new AddModel()
+                    model = new MusteriEkleModel()
                     {
                         ad = txtAd.Text,
                         soyad = txtSoyad.Text,
