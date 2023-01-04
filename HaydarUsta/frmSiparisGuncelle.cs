@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,13 @@ namespace HaydarUsta
 {
     public partial class frmSiparisGuncelle : Form
     {
+
+        #region Constructor/Load
+
+        /**
+         * SiparisBilgileri sayfasına erişen müşteriler güncelle butonu ile bu sayfaya erişir. 
+         * Sipariş güncellenmek istenirse yeni siparis bilgileri bu sayfadan girileceğinden eski sipariş bilgileri yeni SiparisModel tipindeki bir field'a atanacaktır. 
+         */
         public SiparisModel newSiparis;
         private DataHelper helper;
         public MenuModel menu;
@@ -25,8 +33,16 @@ namespace HaydarUsta
         }
         private void frmSiparisGuncelle_Load(object sender, EventArgs e)
         {
-            cbAdana.Checked = true;
+            
+
         }
+        #endregion
+
+        #region Metotlar
+
+        /**
+         * Müşteri siparişini güncellemek istediğinde yeniden sipariş bilgilerini girmesi istenir bu nedenle Musteri.cs'deki işlemler tekrar edilmelidir.  
+         */
         private string OdemeYontemi()
         {
             if (rbKrediKarti.Checked)
@@ -179,6 +195,9 @@ namespace HaydarUsta
             return ucret;
 
         }
+        /**
+         * Musteri.cs sayfasından ListBox olarak alınan veriler buradaki listboxa yazdırılır. Bu nedenle SiparisFisi metodu bırada listbox tipinde parametre alacaktır. 
+         */
         public void SiparisFisi(ListBox list)
         {
             list.Items.Add("SİPARİŞ ÖZETİ");
@@ -204,7 +223,18 @@ namespace HaydarUsta
             list.Items.Add($"Adres: {newSiparis.adres}");
             list.Items.Add($"Telefon: {newSiparis.telefon}");
         }
+        #endregion
 
+        #region Butonlar
+
+        /**
+         * Sipariş güncellemesi esasen siparişin yeni baştan girilmesi işlemidir. 
+         * Ana Yemekten seçmek zorunlu olduğundan AnaYemek seçme kontrolü yapılır. 
+         * Ardından değiştirilmesini istediğimiz siparişin veri tabanından Id'si SiparisId metodu aracılığıyla elde edilir. 
+         * SiparisId 0'a eşit olması demek Id verisinin Veri Tabanından bir nedenle okunmadığı/okunamadığı anlamına gelmektedir. 
+         * Id değeri geldiğinde yeni sipariş bilgileri SiparisModel tipindeki field'a eklenir ve SiparisGuncelle metoduna parametre olarak eklenir. 
+         * İşlem tamamlandığında bu sayfa kapatılır. 
+         */
         private void btnYeniSiparis_Click(object sender, EventArgs e)
         {
             DialogResult YesNo = MessageBox.Show("Siparişinizi Onaylıyor musunuz?", "Bildirim", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -245,12 +275,8 @@ namespace HaydarUsta
                 }
             }
         }
+        #endregion
 
-        private void btnAdresSayfa_Click(object sender, EventArgs e)
-        {
-            frmAdres adres = new frmAdres(this.newSiparis);
-            adres.ShowDialog();
-            adres.Dispose();
-        }
+
     }
 }

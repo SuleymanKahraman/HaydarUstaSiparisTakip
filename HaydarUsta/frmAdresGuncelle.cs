@@ -13,7 +13,13 @@ namespace HaydarUsta
 {
     public partial class frmAdresGuncelle: Form
     {
-        public AdresModel Adres;
+        #region Constructor/Load
+
+        /**
+         * frmAdres sayfasından alınan AdresModel tipindeki değişken Constructor ile bu sayfada da tanımlanır. 
+         * textboxlara frmAdres sayfasından aldığımız veriler atanır. 
+         */
+        private AdresModel Adres;
         private DataHelper helper;
 
         public frmAdresGuncelle(AdresModel adres)
@@ -30,6 +36,14 @@ namespace HaydarUsta
             txtAdres.Text = Adres.adres;
             txtTelefon.Text = Adres.telefon;
         }
+        #endregion
+
+        #region Butonlar
+
+        /**
+         * Değişmesini istediğimiz veriler ilgili kutucuklarda değiştirilir.
+         * Boşluk kontrolü yapıldıktan sonra AdresGuncelle metoduna atanmak üzere müşteri yeni değerleri textbox'larda düzenler.
+         */
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
@@ -40,6 +54,9 @@ namespace HaydarUsta
             }
             else
             {
+                Adres.baslik= txtbaslik.Text;  
+                Adres.adres= txtAdres.Text;
+                Adres.telefon= txtTelefon.Text; 
                 var result = helper.AdresGuncelle(Adres);
                 if (result)
                 {
@@ -51,5 +68,6 @@ namespace HaydarUsta
                 }
             }
         }
+        #endregion
     }
 }

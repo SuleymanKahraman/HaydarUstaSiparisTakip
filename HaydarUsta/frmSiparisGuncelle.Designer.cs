@@ -102,7 +102,6 @@
             this.rbNakit = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btnYeniSiparis = new System.Windows.Forms.Button();
-            this.btnAdresSayfa = new System.Windows.Forms.Button();
             this.gbIcecek.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFanta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmKola)).BeginInit();
@@ -1017,7 +1016,7 @@
             // rbKrediKarti
             // 
             this.rbKrediKarti.AutoSize = true;
-            this.rbKrediKarti.Location = new System.Drawing.Point(304, 500);
+            this.rbKrediKarti.Location = new System.Drawing.Point(294, 500);
             this.rbKrediKarti.Name = "rbKrediKarti";
             this.rbKrediKarti.Size = new System.Drawing.Size(106, 24);
             this.rbKrediKarti.TabIndex = 113;
@@ -1028,7 +1027,7 @@
             // 
             this.rbNakit.AutoSize = true;
             this.rbNakit.Checked = true;
-            this.rbNakit.Location = new System.Drawing.Point(218, 500);
+            this.rbNakit.Location = new System.Drawing.Point(208, 500);
             this.rbNakit.Name = "rbNakit";
             this.rbNakit.Size = new System.Drawing.Size(70, 24);
             this.rbNakit.TabIndex = 112;
@@ -1039,7 +1038,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 504);
+            this.label1.Location = new System.Drawing.Point(12, 500);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 20);
             this.label1.TabIndex = 114;
@@ -1047,32 +1046,20 @@
             // 
             // btnYeniSiparis
             // 
-            this.btnYeniSiparis.Location = new System.Drawing.Point(780, 521);
+            this.btnYeniSiparis.Location = new System.Drawing.Point(780, 500);
             this.btnYeniSiparis.Name = "btnYeniSiparis";
-            this.btnYeniSiparis.Size = new System.Drawing.Size(368, 108);
+            this.btnYeniSiparis.Size = new System.Drawing.Size(368, 129);
             this.btnYeniSiparis.TabIndex = 117;
             this.btnYeniSiparis.TabStop = false;
             this.btnYeniSiparis.Text = "YENİ SİPARİŞ";
             this.btnYeniSiparis.UseVisualStyleBackColor = true;
             this.btnYeniSiparis.Click += new System.EventHandler(this.btnYeniSiparis_Click);
             // 
-            // btnAdresSayfa
-            // 
-            this.btnAdresSayfa.Location = new System.Drawing.Point(1183, 74);
-            this.btnAdresSayfa.Name = "btnAdresSayfa";
-            this.btnAdresSayfa.Size = new System.Drawing.Size(142, 113);
-            this.btnAdresSayfa.TabIndex = 118;
-            this.btnAdresSayfa.TabStop = false;
-            this.btnAdresSayfa.Text = "ADRES SEÇ";
-            this.btnAdresSayfa.UseVisualStyleBackColor = true;
-            this.btnAdresSayfa.Click += new System.EventHandler(this.btnAdresSayfa_Click);
-            // 
             // frmSiparisGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 727);
-            this.Controls.Add(this.btnAdresSayfa);
             this.Controls.Add(this.btnYeniSiparis);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rbKrediKarti);
@@ -1192,6 +1179,5 @@
         private System.Windows.Forms.RadioButton rbNakit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnYeniSiparis;
-        private System.Windows.Forms.Button btnAdresSayfa;
     }
 }

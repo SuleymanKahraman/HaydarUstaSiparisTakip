@@ -36,6 +36,8 @@
             this.lblTelefon = new System.Windows.Forms.Label();
             this.btnKaydetAdres = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtbaslik = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvAdresler = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +57,7 @@
             // 
             // txtAdres
             // 
-            this.txtAdres.Location = new System.Drawing.Point(17, 76);
+            this.txtAdres.Location = new System.Drawing.Point(17, 151);
             this.txtAdres.Multiline = true;
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.Size = new System.Drawing.Size(381, 98);
@@ -64,7 +66,7 @@
             // lblAdres
             // 
             this.lblAdres.AutoSize = true;
-            this.lblAdres.Location = new System.Drawing.Point(169, 38);
+            this.lblAdres.Location = new System.Drawing.Point(169, 113);
             this.lblAdres.Name = "lblAdres";
             this.lblAdres.Size = new System.Drawing.Size(55, 20);
             this.lblAdres.TabIndex = 21;
@@ -72,7 +74,7 @@
             // 
             // txtTelefon
             // 
-            this.txtTelefon.Location = new System.Drawing.Point(17, 227);
+            this.txtTelefon.Location = new System.Drawing.Point(17, 302);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(381, 26);
             this.txtTelefon.TabIndex = 20;
@@ -80,7 +82,7 @@
             // lblTelefon
             // 
             this.lblTelefon.AutoSize = true;
-            this.lblTelefon.Location = new System.Drawing.Point(169, 192);
+            this.lblTelefon.Location = new System.Drawing.Point(169, 267);
             this.lblTelefon.Name = "lblTelefon";
             this.lblTelefon.Size = new System.Drawing.Size(66, 20);
             this.lblTelefon.TabIndex = 23;
@@ -88,26 +90,45 @@
             // 
             // btnKaydetAdres
             // 
-            this.btnKaydetAdres.Location = new System.Drawing.Point(17, 287);
+            this.btnKaydetAdres.Location = new System.Drawing.Point(17, 362);
             this.btnKaydetAdres.Name = "btnKaydetAdres";
             this.btnKaydetAdres.Size = new System.Drawing.Size(381, 76);
             this.btnKaydetAdres.TabIndex = 24;
             this.btnKaydetAdres.Text = "Kaydet";
             this.btnKaydetAdres.UseVisualStyleBackColor = true;
+            this.btnKaydetAdres.Click += new System.EventHandler(this.btnKaydetAdres_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtbaslik);
             this.groupBox1.Controls.Add(this.txtAdres);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtTelefon);
             this.groupBox1.Controls.Add(this.lblAdres);
             this.groupBox1.Controls.Add(this.btnKaydetAdres);
             this.groupBox1.Controls.Add(this.lblTelefon);
             this.groupBox1.Location = new System.Drawing.Point(26, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 411);
+            this.groupBox1.Size = new System.Drawing.Size(424, 497);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adres Bilgileri";
+            // 
+            // txtbaslik
+            // 
+            this.txtbaslik.Location = new System.Drawing.Point(17, 71);
+            this.txtbaslik.Name = "txtbaslik";
+            this.txtbaslik.Size = new System.Drawing.Size(380, 26);
+            this.txtbaslik.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(169, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Başlık:";
             // 
             // groupBox2
             // 
@@ -115,7 +136,7 @@
             this.groupBox2.Controls.Add(this.btnSec);
             this.groupBox2.Location = new System.Drawing.Point(489, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(790, 411);
+            this.groupBox2.Size = new System.Drawing.Size(790, 497);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kayıtlı Adreslerim";
@@ -247,5 +268,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Baslık;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adres;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefon;
+        private System.Windows.Forms.TextBox txtbaslik;
+        private System.Windows.Forms.Label label1;
     }
 }

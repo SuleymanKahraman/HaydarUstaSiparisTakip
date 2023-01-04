@@ -11,8 +11,8 @@ namespace HaydarUsta
         public int Id { get; set; }
         public string ad { get; set; }
         public string soyad { get; set; }
-        public string EmailAdres { get; set; }
-        public string Parola { get; set; }
+        public string emailAdres { get; set; }
+        public string parola { get; set; }
 
     }
 }
