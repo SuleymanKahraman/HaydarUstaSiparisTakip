@@ -74,35 +74,29 @@ namespace HaydarUsta
                 DialogResult YesNo = MessageBox.Show("Siparişinizi Onaylıyor musunuz?", "Bildirim", MessageBoxButtons.YesNo);
                 if (YesNo == DialogResult.Yes)
                 {
-                    adresIslemleri:
-                    frmAdres adres = new frmAdres(siparis);
-                    adres.ShowDialog();
-                    adres.Dispose();
-                    if (siparis.adres != null)
+                    siparis.odemeTurari = UcretHesapla();
+                    siparis.siparis = SiparisList();
+                    siparis.odemeYontemi = OdemeYontemi();
+                    siparis.siparisTarih = DateTime.Now;
+                    if (siparis.adres == null)
                     {
-                        siparis.odemeTurari = UcretHesapla();
-                        siparis.siparis = SiparisList();
-                        siparis.odemeYontemi=OdemeYontemi();
-                        siparis.siparisTarih=DateTime.Now;    
-                        var result = helper.SiparisEkle(siparis);
-                        if (result)
-                        {
-                            MessageBox.Show("İşleminiz başarıyla gerçekleşti. Afiyet olsun.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            SiparisFisi();
-                        }
-                        else
-                        {
-                            MessageBox.Show("İşlem Başarısız. Tekrar Deneyiniz.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-
-                        }
+                        frmAdres adres = new frmAdres(siparis);
+                        adres.ShowDialog();
+                        adres.Dispose();
+                    }
+                    var result = helper.SiparisEkle(siparis);
+                    if (result)
+                    {
+                        MessageBox.Show("İşleminiz başarıyla gerçekleşti. Afiyet olsun.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SiparisFisi();
                     }
                     else
                     {
-                        MessageBox.Show("Adres seçimini tamamlayınız.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        goto adresIslemleri;
+                        MessageBox.Show("İşlem Başarısız. Tekrar Deneyiniz.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+
                     }
-                    
+
                 }
                 else
                 {
@@ -139,6 +133,7 @@ namespace HaydarUsta
                 guncelle.Dispose();
                 lbFatura.Items.Clear();
                 guncelle.SiparisFisi(lbFatura);
+                Clear();
             }
 
         }
@@ -155,10 +150,10 @@ namespace HaydarUsta
             else
             {
                 DialogResult YesNo = MessageBox.Show("Siparişinizi iptal etmek istediğinizden emin misiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (DialogResult == DialogResult.Yes)
+                if (YesNo == DialogResult.Yes)
                 {
-                    int Id = helper.SiparisId(siparis);
-                    var result = helper.SiparisSilme(Id);
+                    siparis.Siparis_Id = helper.SiparisId(siparis);
+                    var result = helper.SiparisSilme(siparis.Siparis_Id);
                     if (result)
                     {
                         MessageBox.Show("Siparişiniz iptal edilmiştir.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);

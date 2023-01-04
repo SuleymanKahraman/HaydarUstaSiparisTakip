@@ -49,8 +49,15 @@ namespace HaydarUsta
         
         private void btnSec_Click(object sender, EventArgs e)
         {
-            siparis.adres = dgvAdresler.CurrentRow.Cells[2].Value.ToString();
-            siparis.telefon = dgvAdresler.CurrentRow.Cells[3].Value.ToString();
+            if(siparis.siparis == null)
+            {
+                MessageBox.Show("Güncellenecek siparişiniz mevcut değil.", "Bildiri", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                siparis.adres = dgvAdresler.CurrentRow.Cells[2].Value.ToString();
+                siparis.telefon = dgvAdresler.CurrentRow.Cells[3].Value.ToString();
+            }
             this.Close();
         }
 
@@ -119,6 +126,9 @@ namespace HaydarUsta
                 if (result)
                 {
                     MessageBox.Show("Kaydetme İşlemi Başarılı.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtAdres.Clear();
+                    txtbaslik.Clear();
+                    txtTelefon.Clear();
                 }
                 else
                 {
@@ -128,5 +138,6 @@ namespace HaydarUsta
             }
         }
         #endregion
+
     }
 }

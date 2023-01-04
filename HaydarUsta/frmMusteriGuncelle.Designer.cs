@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMusteriGuncelle));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtParolaTekrar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblSoyad = new System.Windows.Forms.Label();
             this.txtParola = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -43,8 +46,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.txtParolaTekrar);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblSoyad);
             this.groupBox1.Controls.Add(this.txtParola);
             this.groupBox1.Controls.Add(this.txtEmail);
@@ -54,12 +57,29 @@
             this.groupBox1.Controls.Add(this.txtAd);
             this.groupBox1.Controls.Add(this.txtSoyad);
             this.groupBox1.Controls.Add(this.btnKayit);
-            this.groupBox1.Location = new System.Drawing.Point(462, 103);
+            this.groupBox1.Location = new System.Drawing.Point(613, 155);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(510, 511);
+            this.groupBox1.Size = new System.Drawing.Size(489, 543);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Musteri Bilgileri";
+            // 
+            // txtParolaTekrar
+            // 
+            this.txtParolaTekrar.Location = new System.Drawing.Point(41, 367);
+            this.txtParolaTekrar.Name = "txtParolaTekrar";
+            this.txtParolaTekrar.PasswordChar = '*';
+            this.txtParolaTekrar.Size = new System.Drawing.Size(381, 26);
+            this.txtParolaTekrar.TabIndex = 35;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(42, 334);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 20);
+            this.label1.TabIndex = 34;
+            this.label1.Text = " Yeni Parola(Tekrar):";
             // 
             // lblSoyad
             // 
@@ -74,6 +94,7 @@
             // 
             this.txtParola.Location = new System.Drawing.Point(41, 286);
             this.txtParola.Name = "txtParola";
+            this.txtParola.PasswordChar = '*';
             this.txtParola.Size = new System.Drawing.Size(381, 26);
             this.txtParola.TabIndex = 30;
             // 
@@ -127,7 +148,7 @@
             // 
             // btnKayit
             // 
-            this.btnKayit.Location = new System.Drawing.Point(41, 347);
+            this.btnKayit.Location = new System.Drawing.Point(41, 436);
             this.btnKayit.Name = "btnKayit";
             this.btnKayit.Size = new System.Drawing.Size(381, 71);
             this.btnKayit.TabIndex = 23;
@@ -140,9 +161,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1736, 864);
+            this.ClientSize = new System.Drawing.Size(1718, 903);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMusteriGuncelle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Guncelleme Ekranı";
             this.Load += new System.EventHandler(this.MusteriBilgileri_Load);
             this.groupBox1.ResumeLayout(false);
@@ -163,5 +186,7 @@
         public System.Windows.Forms.TextBox txtAd;
         public System.Windows.Forms.TextBox txtSoyad;
         private System.Windows.Forms.Button btnKayit;
+        public System.Windows.Forms.TextBox txtParolaTekrar;
+        private System.Windows.Forms.Label label1;
     }
 }

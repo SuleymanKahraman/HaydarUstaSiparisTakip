@@ -58,6 +58,7 @@
             // 
             this.txtParolaTekrar.Location = new System.Drawing.Point(155, 424);
             this.txtParolaTekrar.Name = "txtParolaTekrar";
+            this.txtParolaTekrar.PasswordChar = '*';
             this.txtParolaTekrar.Size = new System.Drawing.Size(381, 26);
             this.txtParolaTekrar.TabIndex = 32;
             // 
@@ -74,6 +75,7 @@
             // 
             this.txtParola.Location = new System.Drawing.Point(155, 333);
             this.txtParola.Name = "txtParola";
+            this.txtParola.PasswordChar = '*';
             this.txtParola.Size = new System.Drawing.Size(381, 26);
             this.txtParola.TabIndex = 30;
             // 

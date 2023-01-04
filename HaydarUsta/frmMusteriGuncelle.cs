@@ -46,23 +46,29 @@ namespace HaydarUsta
             }
             else
             {
-                Model.ad = txtAd.Text;
-                Model.soyad = txtSoyad.Text;
-                Model.emailAdres = txtEmail.Text;
-                Model.parola = txtParola.Text;
-                var result = helper.MusteriGuncelle(Model);
-                if (result)
+                if(txtParola.Text!= txtParolaTekrar.Text)
                 {
-                    MessageBox.Show("Güncelleme İşlemi Başarılı.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    MessageBox.Show("Parolalar Eşleşmedi.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
                 else
                 {
-                    MessageBox.Show("Güncelleme İşlemi Yapılamadı.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Model.ad = txtAd.Text;
+                    Model.soyad = txtSoyad.Text;
+                    Model.emailAdres = txtEmail.Text;
+                    Model.parola = txtParola.Text;
+                    var result = helper.MusteriGuncelle(Model);
+                    if (result)
+                    {
+                        MessageBox.Show("Güncelleme İşlemi Başarılı.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Güncelleme İşlemi Yapılamadı.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-
-            
         }
     }
 }

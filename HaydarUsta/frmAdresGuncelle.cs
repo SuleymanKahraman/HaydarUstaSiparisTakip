@@ -61,6 +61,7 @@ namespace HaydarUsta
                 if (result)
                 {
                     MessageBox.Show("Güncelleme İşlemi Başarılı.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
