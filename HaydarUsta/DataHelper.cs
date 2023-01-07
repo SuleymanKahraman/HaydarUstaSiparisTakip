@@ -23,7 +23,7 @@ namespace HaydarUsta
         private readonly SqlConnection connection;
         public DataHelper()
         {
-            connection = new SqlConnection("Data Source=LAPTOP-VMEL2LCP\\SQLEXPRESS01;Initial Catalog=HaydarUsta;Integrated Security=True");
+            connection = new SqlConnection("Data Source=.;Initial Catalog=HaydarUsta;Integrated Security=True");
         }
 
         #endregion
@@ -44,6 +44,7 @@ namespace HaydarUsta
                 model.Id = (int)oku.GetValue(0);
                 model.ad = oku["Ad"].ToString();
                 model.soyad = oku["Soyad"].ToString();
+                model.rol = oku["Rol"].ToString();
                 connection.Close();
                 return true;
             }
@@ -62,7 +63,7 @@ namespace HaydarUsta
         public bool AddSorgu(LoginModel model)
         {
             connection.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT * FROM Musteriler WHERE Ad = '{model.ad}' AND Soyad = '{model.soyad}'", connection);
+            SqlCommand cmd = new SqlCommand($"SELECT * FROM Musteriler WHERE EmailAdres = '{model.emailAdres}'", connection);
             SqlDataReader read = cmd.ExecuteReader();
             var result = read.Read();
             connection.Close();
@@ -79,12 +80,13 @@ namespace HaydarUsta
          */
         public bool AddMusteri(LoginModel model)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO Musteriler (Ad, Soyad, EmailAdres, Parola) VALUES (@Ad, @Soyad, @EmailAdres, @Parola)", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Musteriler (Ad, Soyad, EmailAdres, Parola, Rol) VALUES (@Ad, @Soyad, @EmailAdres, @Parola, @Rol)", connection);
             connection.Open();
             cmd.Parameters.AddWithValue("Ad", model.ad);
             cmd.Parameters.AddWithValue("Soyad", model.soyad);
             cmd.Parameters.AddWithValue("EmailAdres", model.emailAdres);
             cmd.Parameters.AddWithValue("Parola", model.parola);
+            cmd.Parameters.AddWithValue("Rol", "MUSTERI");
             var result = cmd.ExecuteNonQuery();
             connection.Close();
             return result > 0;
@@ -99,7 +101,7 @@ namespace HaydarUsta
          */
         public bool SiparisEkle(SiparisModel menuModel)
         {
-            SqlCommand cmd = new SqlCommand($"INSERT INTO Siparisler(Musteri_Id, Siparis, SiparisTarihi, OdemeTutari, OdemeYontemi, Adres, Telefon) VALUES (@Musteri_Id, @Siparis, @SiparisTarihi, @OdemeTutari, @OdemeYontemi, @Adres, @Telefon)", connection);
+            SqlCommand cmd = new SqlCommand($"INSERT INTO Siparisler(Musteri_Id, Siparis, SiparisTarihi, OdemeTutari, OdemeYontemi, Adres, Telefon, Durum) VALUES (@Musteri_Id, @Siparis, @SiparisTarihi, @OdemeTutari, @OdemeYontemi, @Adres, @Telefon, @Durum)", connection);
             connection.Open();
             cmd.Parameters.AddWithValue("Musteri_Id", menuModel.Musteri_Id);
             cmd.Parameters.AddWithValue("Siparis", menuModel.siparis);
@@ -108,6 +110,7 @@ namespace HaydarUsta
             cmd.Parameters.AddWithValue("OdemeYontemi", menuModel.odemeYontemi);
             cmd.Parameters.AddWithValue("Adres", menuModel.adres);
             cmd.Parameters.AddWithValue("Telefon", menuModel.telefon);
+            cmd.Parameters.AddWithValue("Durum", false);
             var result = cmd.ExecuteNonQuery();
             connection.Close();
             if (result > 0)
@@ -120,11 +123,10 @@ namespace HaydarUsta
         /**
          * Müşteri uygulamadan hesabını silmek istediğinde Hesabı Sil butonuna basarak üyeliğini sonlandırabilir.  
          */
-        public bool MusteriSilme(int ıd)
+        public bool MusteriSilme(int id)
         {
-            SqlCommand sil = new SqlCommand($"DELETE FROM Musteriler WHERE Id = '{ıd}'", connection);
+            SqlCommand sil = new SqlCommand($"DELETE FROM Musteriler WHERE Id = '{id}'", connection);
             connection.Open();
-            sil.Parameters.AddWithValue("Id", ıd);
             var result = sil.ExecuteNonQuery();
             connection.Close();
             if (result > 0)
@@ -138,11 +140,10 @@ namespace HaydarUsta
          * Sipariş kaydı tamamlanmış müşteri siparişini SiparişBilgileri sayfasında iptal edebilir. İptal işlemiyle birlikte Sipariş kaydı Veri Tabanından silinir ve yetkiliye gösterilmez. 
          *
          */
-        public bool SiparisSilme(int Id)
+        public bool SiparisSilme(int id)
         {
-            SqlCommand sil = new SqlCommand($"DELETE FROM Siparisler WHERE Id = '{Id}'", connection);
+            SqlCommand sil = new SqlCommand($"DELETE FROM Siparisler WHERE Id = '{id}' AND Durum = 0", connection);
             connection.Open();
-            sil.Parameters.AddWithValue("Id", Id);
             var result = sil.ExecuteNonQuery();
             connection.Close();
             if (result > 0)
@@ -286,6 +287,19 @@ namespace HaydarUsta
             guncelle.Parameters.AddWithValue("Baslık", adres.baslik);
             guncelle.Parameters.AddWithValue("Adres", adres.adres);
             guncelle.Parameters.AddWithValue("Telefon", adres.telefon);
+            var result = guncelle.ExecuteNonQuery();
+            connection.Close();
+            if (result > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool TeslimEt(int siparisId)
+        {
+            SqlCommand guncelle = new SqlCommand($"UPDATE Siparisler SET Durum=1 WHERE Id = '{siparisId}'", connection);
+            connection.Open();
             var result = guncelle.ExecuteNonQuery();
             connection.Close();
             if (result > 0)

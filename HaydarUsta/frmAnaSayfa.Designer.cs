@@ -41,64 +41,71 @@
             // 
             // txtLogParola
             // 
-            this.txtLogParola.Location = new System.Drawing.Point(481, 317);
+            this.txtLogParola.Location = new System.Drawing.Point(321, 206);
+            this.txtLogParola.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLogParola.Name = "txtLogParola";
             this.txtLogParola.PasswordChar = '*';
-            this.txtLogParola.Size = new System.Drawing.Size(337, 26);
-            this.txtLogParola.TabIndex = 31;
+            this.txtLogParola.Size = new System.Drawing.Size(226, 20);
+            this.txtLogParola.TabIndex = 2;
             // 
             // txtLogEmailAdres
             // 
-            this.txtLogEmailAdres.Location = new System.Drawing.Point(481, 239);
+            this.txtLogEmailAdres.Location = new System.Drawing.Point(321, 155);
+            this.txtLogEmailAdres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLogEmailAdres.Name = "txtLogEmailAdres";
-            this.txtLogEmailAdres.Size = new System.Drawing.Size(337, 26);
-            this.txtLogEmailAdres.TabIndex = 29;
+            this.txtLogEmailAdres.Size = new System.Drawing.Size(226, 20);
+            this.txtLogEmailAdres.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(405, 113);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(270, 73);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(519, 28);
+            this.label1.Size = new System.Drawing.Size(344, 20);
             this.label1.TabIndex = 27;
             this.label1.Text = "HAYDAR USTANIN YERİNE HOŞGELDİNİZ...";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(607, 448);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(405, 291);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 28);
+            this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 32;
             this.label2.Text = "VE YA";
             // 
             // lblEmailAdresGiris
             // 
             this.lblEmailAdresGiris.AutoSize = true;
-            this.lblEmailAdresGiris.Location = new System.Drawing.Point(488, 200);
+            this.lblEmailAdresGiris.Location = new System.Drawing.Point(325, 130);
+            this.lblEmailAdresGiris.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmailAdresGiris.Name = "lblEmailAdresGiris";
-            this.lblEmailAdresGiris.Size = new System.Drawing.Size(106, 20);
+            this.lblEmailAdresGiris.Size = new System.Drawing.Size(70, 13);
             this.lblEmailAdresGiris.TabIndex = 28;
             this.lblEmailAdresGiris.Text = "E-mail Adresi:";
             // 
             // lblParolaGiris
             // 
             this.lblParolaGiris.AutoSize = true;
-            this.lblParolaGiris.Location = new System.Drawing.Point(488, 294);
+            this.lblParolaGiris.Location = new System.Drawing.Point(325, 191);
+            this.lblParolaGiris.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblParolaGiris.Name = "lblParolaGiris";
-            this.lblParolaGiris.Size = new System.Drawing.Size(58, 20);
+            this.lblParolaGiris.Size = new System.Drawing.Size(40, 13);
             this.lblParolaGiris.TabIndex = 30;
             this.lblParolaGiris.Text = "Parola:";
             // 
             // btnGiris
             // 
             this.btnGiris.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGiris.Location = new System.Drawing.Point(481, 360);
+            this.btnGiris.Location = new System.Drawing.Point(321, 234);
+            this.btnGiris.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGiris.Name = "btnGiris";
-            this.btnGiris.Size = new System.Drawing.Size(337, 72);
-            this.btnGiris.TabIndex = 26;
+            this.btnGiris.Size = new System.Drawing.Size(225, 47);
+            this.btnGiris.TabIndex = 3;
             this.btnGiris.Text = "Giriş";
             this.btnGiris.UseVisualStyleBackColor = true;
             this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click_1);
@@ -106,19 +113,20 @@
             // btnKayit
             // 
             this.btnKayit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnKayit.Location = new System.Drawing.Point(481, 491);
+            this.btnKayit.Location = new System.Drawing.Point(321, 319);
+            this.btnKayit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(337, 72);
-            this.btnKayit.TabIndex = 34;
+            this.btnKayit.Size = new System.Drawing.Size(225, 47);
+            this.btnKayit.TabIndex = 4;
             this.btnKayit.Text = "Kayıt Ol";
             this.btnKayit.UseVisualStyleBackColor = true;
             this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
             // frmAnaSayfa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1342, 725);
+            this.ClientSize = new System.Drawing.Size(895, 471);
             this.Controls.Add(this.btnKayit);
             this.Controls.Add(this.txtLogParola);
             this.Controls.Add(this.txtLogEmailAdres);
@@ -128,6 +136,7 @@
             this.Controls.Add(this.lblParolaGiris);
             this.Controls.Add(this.btnGiris);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmAnaSayfa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş Sayfası";

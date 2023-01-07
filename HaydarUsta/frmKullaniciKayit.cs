@@ -65,7 +65,7 @@ namespace HaydarUsta
                     var sorgu = helper.AddSorgu(model);
                     if (sorgu)
                     {
-                        MessageBox.Show("Bu kullanıcı daha önce kayıt olmuş. Lütfen giriş yapınız.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Bu mail adresi daha önce kullanılmış. Lütfen giriş yapınız.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         ClearAll();
                     }
                     else

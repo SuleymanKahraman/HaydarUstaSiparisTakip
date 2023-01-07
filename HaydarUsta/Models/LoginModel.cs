@@ -13,6 +13,6 @@ namespace HaydarUsta
         public string soyad { get; set; }
         public string emailAdres { get; set; }
         public string parola { get; set; }
-
+        public string rol { get; internal set; }
     }
 }

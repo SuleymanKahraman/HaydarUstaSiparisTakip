@@ -1,25 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HaydarUsta
 {
-    
-    //TODO: Button - TapStop: Program çalışırken butonun seçili olup olmayacağını belirliyor. 
+    //TODO: Button - TapStop: Program çalışırken butonun seçili olup olmayacağını belirliyor.
 
     public partial class frmAnaSayfa : Form
     {
         #region Construct/Load
+
         /**
          * SQL veri tabanıyla iletişimde kullanacağımız metotları DataHeper adında bir class yardımıyla çağıracağız.
-         *  DataHelper clasından ve müsteriden aldığımız Login verilerini tutmak için LoginModel clasından birer örnek almak için en başa birer field tanımladık. 
+         *  DataHelper clasından ve müsteriden aldığımız Login verilerini tutmak için LoginModel clasından birer örnek almak için en başa birer field tanımladık.
          */
 
         private readonly DataHelper helper;
@@ -33,9 +25,9 @@ namespace HaydarUsta
 
         private void frmAnaSayfa_Load(object sender, EventArgs e)
         {
-
         }
-        #endregion
+
+        #endregion Construct/Load
 
         #region Giriş/KayıtOl
 
@@ -51,11 +43,11 @@ namespace HaydarUsta
         }
 
         /**
-         * Login işlemleri için önce textbox boşluk kontrolü yapılır. 
-         * Login model clasından örnek alınır ve musteri verileri kaydedilir. 
-         * Musteri bilgileri loginSorgu metodu yardımıyla veri tabanından sorgulanır. 
-         * Musteri sisteme kayıtlı ise Musteri.cs'e yönlendirilir. 
-         * Sisteme kayıtlı değilse giriş yapamaz ve kayıt olunması talep edilir. 
+         * Login işlemleri için önce textbox boşluk kontrolü yapılır.
+         * Login model clasından örnek alınır ve musteri verileri kaydedilir.
+         * Musteri bilgileri loginSorgu metodu yardımıyla veri tabanından sorgulanır.
+         * Musteri sisteme kayıtlı ise Musteri.cs'e yönlendirilir.
+         * Sisteme kayıtlı değilse giriş yapamaz ve kayıt olunması talep edilir.
         */
 
         private void btnGiris_Click_1(object sender, EventArgs e)
@@ -75,9 +67,18 @@ namespace HaydarUsta
                 var result = helper.LoginSorgu(model);
                 if (result)
                 {
-                    frmMusteri menu = new frmMusteri(model);
-                    menu.ShowDialog();
-                    menu.Dispose();
+                    if (model.rol == "ADMIN")
+                    {
+                        frmYetkili yetkili = new frmYetkili();
+                        yetkili.ShowDialog();
+                        yetkili.Dispose();
+                    }
+                    else
+                    {
+                        frmMusteri menu = new frmMusteri(model);
+                        menu.ShowDialog();
+                        menu.Dispose();
+                    }
                 }
                 else
                 {
@@ -87,7 +88,7 @@ namespace HaydarUsta
                 }
             }
         }
-        #endregion
 
+        #endregion Giriş/KayıtOl
     }
 }

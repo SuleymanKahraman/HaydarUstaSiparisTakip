@@ -51,7 +51,7 @@ namespace HaydarUsta
         {
             if(siparis.siparis == null)
             {
-                MessageBox.Show("Güncellenecek siparişiniz mevcut değil.", "Bildiri", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Siparişiniz mevcut değil.", "Bildiri", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
