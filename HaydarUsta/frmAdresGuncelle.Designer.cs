@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdresGuncelle));
             this.lblTelefon = new System.Windows.Forms.Label();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.txtAdres = new System.Windows.Forms.TextBox();
             this.txtbaslik = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblAdres = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblAdres = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,21 +90,12 @@
             this.groupBox1.Controls.Add(this.lblAdres);
             this.groupBox1.Controls.Add(this.btnGuncelle);
             this.groupBox1.Controls.Add(this.lblTelefon);
-            this.groupBox1.Location = new System.Drawing.Point(321, 89);
+            this.groupBox1.Location = new System.Drawing.Point(364, 71);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(697, 465);
+            this.groupBox1.Size = new System.Drawing.Size(657, 498);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adres Bilgileri";
-            // 
-            // lblAdres
-            // 
-            this.lblAdres.AutoSize = true;
-            this.lblAdres.Location = new System.Drawing.Point(317, 124);
-            this.lblAdres.Name = "lblAdres";
-            this.lblAdres.Size = new System.Drawing.Size(55, 20);
-            this.lblAdres.TabIndex = 21;
-            this.lblAdres.Text = "Adres:";
             // 
             // label1
             // 
@@ -114,13 +106,24 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Başlık:";
             // 
+            // lblAdres
+            // 
+            this.lblAdres.AutoSize = true;
+            this.lblAdres.Location = new System.Drawing.Point(317, 124);
+            this.lblAdres.Name = "lblAdres";
+            this.lblAdres.Size = new System.Drawing.Size(55, 20);
+            this.lblAdres.TabIndex = 21;
+            this.lblAdres.Text = "Adres:";
+            // 
             // frmAdresGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1356, 701);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdresGuncelle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAdresGuncelle";
             this.Load += new System.EventHandler(this.frmAdresGuncelle_Load);
             this.groupBox1.ResumeLayout(false);

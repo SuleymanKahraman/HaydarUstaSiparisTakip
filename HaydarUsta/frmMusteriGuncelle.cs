@@ -38,6 +38,14 @@ namespace HaydarUsta
         }
         #endregion
 
+        #region Butonlar
+
+        /**
+         * Musteri Bilgileri ekrana geldikten sonra kutuların boş olup olmadığı kontrol edilir. 
+         * Parola iki kez girilmeli ve kontrol edilmelidir. 
+         * Ardından LoginModel.cs'e yeni müşteri verileri yüklenmek üzere butona basılır. 
+         * DataHelper class'ında müşteri bilgileri MusteriGuncelle metoduyla güncellenir. 
+         */
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
             if (txtAd.Text == string.Empty || txtSoyad.Text == string.Empty || txtEmail.Text == string.Empty || txtParola.Text == string.Empty)
@@ -60,8 +68,8 @@ namespace HaydarUsta
                     var result = helper.MusteriGuncelle(Model);
                     if (result)
                     {
-                        MessageBox.Show("Güncelleme İşlemi Başarılı.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        MessageBox.Show("Güncelleme İşlemi Başarılı. Uygulama Yeniden Başlatılacaktır.", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Application.Restart();
                     }
                     else
                     {
@@ -70,5 +78,7 @@ namespace HaydarUsta
                 }
             }
         }
+        #endregion
+
     }
 }

@@ -40,45 +40,49 @@
             // 
             // dgv_Siparisler
             // 
+            this.dgv_Siparisler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Siparisler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Siparisler.ContextMenuStrip = this.cms_yetkili;
-            this.dgv_Siparisler.Location = new System.Drawing.Point(31, 29);
+            this.dgv_Siparisler.Location = new System.Drawing.Point(180, 110);
+            this.dgv_Siparisler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_Siparisler.Name = "dgv_Siparisler";
             this.dgv_Siparisler.ReadOnly = true;
-            this.dgv_Siparisler.Size = new System.Drawing.Size(879, 499);
+            this.dgv_Siparisler.RowHeadersWidth = 62;
+            this.dgv_Siparisler.Size = new System.Drawing.Size(1036, 582);
             this.dgv_Siparisler.TabIndex = 0;
             // 
             // cms_yetkili
             // 
+            this.cms_yetkili.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.cms_yetkili.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.teslimEtToolStripMenuItem,
             this.iptalEtToolStripMenuItem});
             this.cms_yetkili.Name = "cms_yetkili";
-            this.cms_yetkili.Size = new System.Drawing.Size(181, 70);
+            this.cms_yetkili.Size = new System.Drawing.Size(153, 68);
             // 
             // teslimEtToolStripMenuItem
             // 
             this.teslimEtToolStripMenuItem.Name = "teslimEtToolStripMenuItem";
-            this.teslimEtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.teslimEtToolStripMenuItem.Size = new System.Drawing.Size(152, 32);
             this.teslimEtToolStripMenuItem.Text = "Teslim Et";
             this.teslimEtToolStripMenuItem.Click += new System.EventHandler(this.teslimEtToolStripMenuItem_Click);
             // 
             // iptalEtToolStripMenuItem
             // 
             this.iptalEtToolStripMenuItem.Name = "iptalEtToolStripMenuItem";
-            this.iptalEtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iptalEtToolStripMenuItem.Size = new System.Drawing.Size(152, 32);
             this.iptalEtToolStripMenuItem.Text = "İptal Et";
             this.iptalEtToolStripMenuItem.Click += new System.EventHandler(this.iptalEtToolStripMenuItem_Click);
             // 
             // frmYetkili
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 566);
+            this.ClientSize = new System.Drawing.Size(1420, 871);
             this.Controls.Add(this.dgv_Siparisler);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmYetkili";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "İşletme Sayfası";
             this.Load += new System.EventHandler(this.frmYetkili_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Siparisler)).EndInit();

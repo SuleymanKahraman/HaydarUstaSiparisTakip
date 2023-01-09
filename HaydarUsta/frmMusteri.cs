@@ -34,6 +34,8 @@ namespace HaydarUsta
 
         private void frmKullanici_Load(object sender, EventArgs e)
         {
+            Clear();
+            lbFatura.Items.Clear();
             siparis = new SiparisModel();
             menu = new MenuModel();
             siparis.Musteri_Id = login.Id;
@@ -102,6 +104,8 @@ namespace HaydarUsta
         private void btnYeniSiparis_Click(object sender, EventArgs e)
         {
             frmKullanici_Load(null, null);
+            rbNakit.Enabled = true;
+            
         }
 
         /**
@@ -194,6 +198,8 @@ namespace HaydarUsta
             frmMusteriGuncelle guncelle = new frmMusteriGuncelle(login);
             guncelle.ShowDialog();
             guncelle.Dispose();
+            
+
         }
 
         /**
@@ -230,6 +236,13 @@ namespace HaydarUsta
             frmAdres adres = new frmAdres(siparis);
             adres.ShowDialog();
             adres.Dispose();
+        }
+
+        private void siparişlerimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSiparisList list = new frmSiparisList(siparis);
+            list.ShowDialog();
+            list.Dispose();
         }
 
         #endregion Butonlar
@@ -461,5 +474,7 @@ namespace HaydarUsta
         }
 
         #endregion Metotlar
+
+       
     }
 }

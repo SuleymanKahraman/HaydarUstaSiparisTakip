@@ -23,7 +23,7 @@ namespace HaydarUsta
         private readonly SqlConnection connection;
         public DataHelper()
         {
-            connection = new SqlConnection("Data Source=.;Initial Catalog=HaydarUsta;Integrated Security=True");
+            connection = new SqlConnection("Data Source=LAPTOP-VMEL2LCP\\SQLEXPRESS01;Initial Catalog=HaydarUsta;Integrated Security=True");
         }
 
         #endregion

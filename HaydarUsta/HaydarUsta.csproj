@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmSiparisList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSiparisList.Designer.cs">
+      <DependentUpon>frmSiparisList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdresGuncelle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="frmSiparisGuncelle.Designer.cs">
       <DependentUpon>frmSiparisGuncelle.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmSiparisList.resx">
+      <DependentUpon>frmSiparisList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdresGuncelle.resx">
       <DependentUpon>frmAdresGuncelle.cs</DependentUpon>
     </EmbeddedResource>

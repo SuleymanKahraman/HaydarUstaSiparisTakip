@@ -61,7 +61,7 @@
             this.txtAdres.Multiline = true;
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.Size = new System.Drawing.Size(381, 98);
-            this.txtAdres.TabIndex = 22;
+            this.txtAdres.TabIndex = 2;
             // 
             // lblAdres
             // 
@@ -77,7 +77,7 @@
             this.txtTelefon.Location = new System.Drawing.Point(17, 302);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(381, 26);
-            this.txtTelefon.TabIndex = 20;
+            this.txtTelefon.TabIndex = 3;
             // 
             // lblTelefon
             // 
@@ -93,7 +93,7 @@
             this.btnKaydetAdres.Location = new System.Drawing.Point(17, 362);
             this.btnKaydetAdres.Name = "btnKaydetAdres";
             this.btnKaydetAdres.Size = new System.Drawing.Size(381, 76);
-            this.btnKaydetAdres.TabIndex = 24;
+            this.btnKaydetAdres.TabIndex = 4;
             this.btnKaydetAdres.Text = "Kaydet";
             this.btnKaydetAdres.UseVisualStyleBackColor = true;
             this.btnKaydetAdres.Click += new System.EventHandler(this.btnKaydetAdres_Click);
@@ -119,7 +119,7 @@
             this.txtbaslik.Location = new System.Drawing.Point(17, 71);
             this.txtbaslik.Name = "txtbaslik";
             this.txtbaslik.Size = new System.Drawing.Size(380, 26);
-            this.txtbaslik.TabIndex = 31;
+            this.txtbaslik.TabIndex = 1;
             // 
             // label1
             // 
@@ -224,7 +224,7 @@
             this.btnSec.Location = new System.Drawing.Point(422, 287);
             this.btnSec.Name = "btnSec";
             this.btnSec.Size = new System.Drawing.Size(325, 76);
-            this.btnSec.TabIndex = 28;
+            this.btnSec.TabIndex = 5;
             this.btnSec.Text = "Seç";
             this.btnSec.UseVisualStyleBackColor = true;
             this.btnSec.Click += new System.EventHandler(this.btnSec_Click);
